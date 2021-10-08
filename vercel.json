@@ -8,7 +8,7 @@
     { "src": "/guzhi", "dest": "/api/guzhi.js" },
     { "src": "/about", "dest": "/api/about.js" },
     { "src": "/test-function", "dest": "/test/test-function.js" },
-    { "src": "/", "status": 301, "headers": { "Location": "https://cyrxdzj.github.io/2021-07-07-HowToUseLuoguCard/" } }
+    { "src": "/", "status": 301, "headers": { "Location": "https://github.com/YangguangZhou/Luogu-User-Card" } }
   ],
   "regions": ["hkg1"]
 }
