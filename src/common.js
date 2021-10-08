@@ -207,10 +207,14 @@ const renderAboutText = (userType,followerCount,followingCount,ranking,slogan,da
                             `
     let line1 = `<g transform="translate(25,0)"><text x="0" y="15" class="about-text">用户类型：${userType}</text></g>`
     let line2 = `<g transform="translate(25,30)"><text x="0" y="15" class="about-text">TA关注了${followingCount}人，共有${followerCount}人关注TA</text></g>`
-    if(${ranking}==null){
-        let line3 = `<g transform="translate(25,60)"><text x="0" y="15" class="about-text-grey">暂无咕值排名</text></g>`
-    }else{
-        let line3 = `<g transform="translate(25,60)"><text x="0" y="15" class="about-text">咕值排名：第${ranking}名</text></g>`
+    let line3 = "";
+    if(${ranking}==null)
+    {
+        line3 = `<g transform="translate(25,60)"><text x="0" y="15" class="about-text-grey">暂无咕值排名</text></g>`
+    }
+    else
+    {
+        line3 = `<g transform="translate(25,60)"><text x="0" y="15" class="about-text">咕值排名：第${ranking}名</text></g>`
     }
     let line4 = "";
     if(slogan)
