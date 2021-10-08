@@ -211,7 +211,7 @@ const renderAboutText = (userType,followerCount,followingCount,ranking,slogan,da
     let line4 = "";
     if(slogan)
     {
-        line4 = `<g transform="translate(25,90)"><text x="0" y="15" class="about-text">${slogan}</text></g>`
+        line4 = `<g transform="translate(25,90)"><text x="0" y="15" class="about-text">个性签名：${slogan}</text></g>`
     }
     else
     {
