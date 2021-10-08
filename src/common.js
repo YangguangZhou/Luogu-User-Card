@@ -215,7 +215,7 @@ const renderAboutText = (userType,followerCount,followingCount,ranking,slogan,da
         line2 = `<g transform="translate(25,30)"><text x="0" y="15" class="about-text">TA还没有关注任何人，共有${followerCount}人关注TA</text></g>`
     }else{
         line2 = `<g transform="translate(25,30)"><text x="0" y="15" class="about-text">TA关注了${followingCount}人，共有${followerCount}人关注TA</text></g>`
-    //}
+    }
     let line3 = "";
     if(ranking)
     {
