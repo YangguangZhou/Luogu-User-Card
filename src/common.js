@@ -16,7 +16,7 @@ class Card {
         height = 250,
         title = "",
         body = "",
-        titleHeight = 25,
+        titleHeight = 50,
         hideTitle = false,
         css = "",
         darkMode = "",
