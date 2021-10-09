@@ -26,13 +26,10 @@ async function fetchGuzhi(id, ranking) {
 }
 
 module.exports = async (req, res) => {
-    const { id, scores, hide_title, dark_mode, disable_cache, card_width = 500 } = req.query;
+    const { id, scores, hide_title, dark_mode, card_width = 500 } = req.query;
     var finally_scores
 
     res.setHeader("Content-Type", "image/svg+xml");
-    if(!disable_cache){
-        res.setHeader("Cache-Control", "public, max-age=43200"); // 43200s（12h） cache
-    }
 
     const regNum = /^[1-9]\d*$/;
     const clamp = (min, max, n) => Math.max(min, Math.min(max, n));
