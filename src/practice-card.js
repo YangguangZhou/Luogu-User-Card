@@ -71,7 +71,7 @@ const renderSVG = (stats, options) => {
         return renderError("用户开启了“完全隐私保护”，获取数据失败", options={width:360});
     }
     
-    const paddingX = 50;
+    const paddingX = 25;
     const labelWidth = 90;    //柱状图头部文字长度
     const progressWidth = cardWidth - 2*paddingX - labelWidth - 60; //500 - 25*2(padding) - 90(头部文字长度) - 60(预留尾部文字长度)，暂时固定，后序提供自定义选项;
 
