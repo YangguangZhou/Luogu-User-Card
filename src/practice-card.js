@@ -93,7 +93,7 @@ const renderSVG = (stats, options) => {
 
     return new Card({
         width: cardWidth - 2*paddingX,
-        height: datas.length*30 + 10,
+        height: datas.length*30 + 1000,
         hideTitle,
         darkMode,
         title,
