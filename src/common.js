@@ -187,7 +187,7 @@ const renderNameTitle = (name, color, ccfLevel, title, cardWidth, rightTop, tag)
         <text x="${nameLength + (ccfLevel < 3 ? 10 : 28) + (tag?tagLength+5:0)}" y="0" class="title" font-weight="normal" font-size="18">
             ${title}
         </text>
-        <text x="${cardWidth - 260}" y="0" class="title" font-weight="normal" font-size="13px">
+        <text x="${cardWidth - 200}" y="0" class="title" font-weight="normal" font-size="13px">
             ${rightTop}
         </text>
     </g>`;
