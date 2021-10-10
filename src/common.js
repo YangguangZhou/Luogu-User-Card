@@ -218,11 +218,11 @@ const renderAboutText = (userType,followerCount,followingCount,ranking,slogan,da
     let line3 = "";
     if(ranking)
     {
-        line3 = `<g transform="translate(25,60)"><text x="0" y="15" class="about-text-grey">咕值排名：第${ranking}名</text></g>`
+        line3 = `<g transform="translate(25,60)"><text x="0" y="15" class="about-text">咕值排名：第${ranking}名</text></g>`
     }
     else
     {
-        line3 = `<g transform="translate(25,60)"><text x="0" y="15" class="about-text">暂无咕值排名</text></g>`
+        line3 = `<g transform="translate(25,60)"><text x="0" y="15" class="about-text-grey">暂无咕值排名</text></g>`
     }
     let line4 = "";
     if(slogan)
