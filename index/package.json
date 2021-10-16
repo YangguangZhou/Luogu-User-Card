@@ -1,0 +1,25 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "采用 Vercel\\* + Nodejs 搭建的名片 API.",
+  "main": "index.js",
+  "dependencies": {
+    "ip": "^1.1.5",
+    "moment": "^2.29.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xecades/API.git"
+  },
+  "author": "'Xecades' <i@xecades.xyz> (https://xecades.xyz/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Xecades/API/issues"
+  },
+  "homepage": "https://github.com/Xecades/API#readme"
+}
