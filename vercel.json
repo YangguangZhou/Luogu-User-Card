@@ -1,10 +1,10 @@
 {
   "builds": [
     { "src": "api/*.js", "use": "@vercel/node" },
-    { "src": "test/*.js", "use": "@vercel/node"},
-    { "src": "*.html", "use": "@vercel/node"}
+    { "src": "test/*.js", "use": "@vercel/node"}
   ],
   "routes": [
+    {"handle": "filesystem"},
     { "src": "/practice", "dest": "/api/practice.js" },
     { "src": "/guzhi", "dest": "/api/guzhi.js" },
     { "src": "/about", "dest": "/api/about.js" },
