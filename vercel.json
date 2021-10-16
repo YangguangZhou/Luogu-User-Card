@@ -1,12 +1,6 @@
 {
     "routes": [
-        {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/(.*)",
-            "status": 404,
-            "dest": "/welcome.html"
-        }
+        {"handle": "filesystem"},
+        {"src": "/(.*)","status": 404,"dest": "/welcome.html"}
     ]
 }
