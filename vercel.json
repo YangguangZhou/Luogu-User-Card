@@ -1,14 +1,15 @@
 {
   "builds": [
     { "src": "api/*.js", "use": "@vercel/node" },
-    { "src": "test/*.js", "use": "@vercel/node"}
+    { "src": "test/*.js", "use": "@vercel/node"},
+    { "src": "index/*.js", "use": "@vercel/node"}
   ],
   "routes": [
     { "src": "/practice", "dest": "/api/practice.js" },
     { "src": "/guzhi", "dest": "/api/guzhi.js" },
     { "src": "/about", "dest": "/api/about.js" },
     { "src": "/test-function", "dest": "/test/test-function.js" },
-    { "src": "/", "dest": "/index.html" }
+    { "src": "/", "dest": "/index/index.html" }
     
   ],
   "regions": ["hkg1"]
