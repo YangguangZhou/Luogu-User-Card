@@ -4,7 +4,6 @@
     { "src": "test/*.js", "use": "@vercel/node"}
   ],
   "routes": [
-    {"handle": "filesystem"},
     { "src": "/practice", "dest": "/api/practice.js" },
     { "src": "/guzhi", "dest": "/api/guzhi.js" },
     { "src": "/about", "dest": "/api/about.js" },
