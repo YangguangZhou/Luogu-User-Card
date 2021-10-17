@@ -1,4 +1,4 @@
-const baseURL = "https://api.xecades.xyz/api";
+const baseURL = "https://luogu-user-card-jz.vercel.app/info";
 const icons = [
     "site",
     "email",
