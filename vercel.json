@@ -6,6 +6,8 @@
         { "src": "/about", "dest": "/api/about.js" },
         { "src": "/test-function", "dest": "/test/test-function.js" },
         { "src": "/", "dest": "/index/index.html" },
-        {"src": "/(.*)","status": 404,"dest": "/welcome.html"}
+        { "src": "/info", "dest": "/index/api/index.js" },
+        { "src": "/tcb", "dest": "/tcb/public/index.html" },
+        { "src": "/(.*)","status": 404,"dest": "/404.html" }
     ]
 }
