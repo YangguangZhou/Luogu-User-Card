@@ -1,6 +1,7 @@
 {
     "routes": [
         {"handle": "filesystem"},
+        { "src": "/practice", "dest": "/api/practice.js" },
         {"src": "/(.*)","status": 404,"dest": "/welcome.html"}
     ]
 }
