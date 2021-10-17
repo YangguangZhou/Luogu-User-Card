@@ -131,7 +131,7 @@ module.exports = async (req, res) => {
         console.log("[Running] " + decodeURI(req.url));
 
     moment.locale("zh-cn");
-    param = new URLSearchParams(req.url.split("/api")[1]);
+    param = new URLSearchParams(req.url.split("/api/index.js")[1]);
 
     res.setHeader("Content-Type", "image/svg+xml");
     const {
