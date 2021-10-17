@@ -6,7 +6,7 @@
         { "src": "/about", "dest": "/api/about.js" },
         { "src": "/test-function", "dest": "/test/test-function.js" },
         { "src": "/info", "dest": "/api/info.js" },
-        { "src": "/", "dest": "/tcb/src/homepage.vue" },
+        { "src": "/", "dest": "/tcb/public/index.html" },
         { "src": "/(.*)","status": 404,"dest": "/404.html" }
     ]
 }
