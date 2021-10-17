@@ -3,7 +3,7 @@ const {
     renderError,
     renderChart,
     renderAboutText,
-    renderNameTitle,
+    renderNameTitle2,
 } = require("./common.js");
 
 /**

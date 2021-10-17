@@ -195,6 +195,44 @@ const renderNameTitle = (name, color, ccfLevel, title, cardWidth, rightTop, tag)
 
 /**
  * 
+ * @param {string} name 用户名
+ * @param {string} color 用户颜色
+ * @param {number} ccfLevel 用户ccf等级
+ * @param {string} title 标题的后缀
+ * @param {string} rightTop 右上角的标签（展示总数）
+ */
+ const renderNameTitle2 = (name, color, ccfLevel, title, cardWidth, rightTop, tag) => {
+    if(tag=="null")
+    {
+        tag="";
+    }
+    if(color=="Cheater")
+    {
+        tag="作弊者";
+    }
+    const tagLength = anafanafo(tag)/10*1.2;
+    const nameLength = anafanafo(name)/10*1.8;
+    const nameColor = NAMECOLOR[color];
+    const tagSVG = tag?`<defs><filter x="-0.05" y="-0.05" width="1.1" height="1.1" id="tagFilter"><feFlood flood-color="${nameColor}"/><feComposite in="SourceGraphic"/></filter></defs><text filter="url(#tagFilter)" x="${nameLength + (ccfLevel < 3 ? 10 : 28)}" y="-1" fill="white" font-weight="bold" textLength="${tagLength}" font-size="12">${tag}</text>`:``;
+
+    return `
+    <g transform="translate(0, 0)" font-family="Verdana, Microsoft Yahei" text-rendering="geometricPrecision">
+        <text x="0" y="0" fill="${nameColor}" font-weight="bold" textLength="${nameLength}" font-size="18">
+            ${name}
+        </text>
+        ${ccfLevel < 3 ? "" : renderCCFBadge(ccfLevel, nameLength + 5)}
+        ${tagSVG}
+        <text x="${nameLength + (ccfLevel < 3 ? 10 : 28) + (tag?tagLength+5:0)}" y="0" class="title" font-weight="normal" font-size="18">
+            ${title}
+        </text>
+        <text x="${cardWidth - 260}" y="0" class="title" font-weight="normal" font-size="13px">
+            ${rightTop}
+        </text>
+    </g>`;
+}
+
+/**
+ * 
  * @param {string} userType 用户类型
  * @param {number} followerCount 粉丝数量
  * @param {number} followingCount 此用户关注的人数
@@ -242,5 +280,6 @@ module.exports = {
     renderCCFBadge,
     renderChart,
     renderNameTitle,
+    renderNameTitle2,
     renderAboutText
 };
