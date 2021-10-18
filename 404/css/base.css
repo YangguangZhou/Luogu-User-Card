@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+/*给网页添加 黑白滤镜*/
+
+/*html{
+    /*兼容FF
+    filter: url("data:image/svg xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    /*兼容IE内核
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+    /*兼容其它，谷歌之类的
+    -webkit-filter: grayscale(1);
+}*/
+
+
+@font-face { 
+  font-family:"Microsoft YaHei"; 
+} 
+
+body,html{
+     height: 100%;
+     width: 100%;
+     min-width: 950px;
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr, acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike, sub,sup,tt,var,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption, tbody,tfoot,thead,tr,th,td，p,span{
+    align:baseline;
+    background:transparent;
+    margin: 0;
+    padding:0;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+    box-sizing:border-box;
+    list-style-type:none;
+    font-family: Microsoft YaHei,microsoft yahei ui,微软雅黑,SimSun,楷体,楷体_GB2312;
+    font-size: 13px;
+}
+
+option,input,button,select,textarea{
+    border:0;
+    outline:none;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background: none;
+    webkit-appearance: none;
+    background:none;
+}
+body, td, div,span,a{
+    line-height:1;
+    letter-spacing:0; 
+    margin:0; 
+    padding:0; 
+    -moz-font-smoothing:antialiased; 
+    -webkit-font-smoothing: antialiased;
+    font-smoothing:antialiased; 
+}
+    blockquote,q{
+    quotes:none;
+}
+    blockquote:before,blockquote:after,q:before,q:after{
+    content:none;
+}
+    :focus{
+    outline:0;
+}
+    ins{
+    text-decoration:none;
+}
+    del{
+    text-decoration:line-through;
+}
+    table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+img{
+    border:0px;
+}
+.banner{
+    width: 1004px;
+    height:232px;
+    margin: 10px auto 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.banner img{
+    width: 100%;
+}
+a{  
+    text-decoration:none; 
+    cursor:pointer; 
+    outline:none; 
+    text-decoration-line: none;
+    color:#666;
+}
+a, area {
+    outline:none; 
+    blr:expression(this.onFocus=this.blur())
+} 
+a:hover{ 
+    text-decoration:none;
+}
+
+
+
+
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+
+/*  <div id="loader"></div>  loading代码，需将此html内容放入html页面才起作用*/
+
+.no-js #loader { display: none; }
+.js #loader { 
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: #fff url("../img/loader.gif") no-repeat center center;/* 引入loading动画*/
+  background-size: 200px;
+}

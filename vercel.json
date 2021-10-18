@@ -7,6 +7,6 @@
         { "src": "/test-function", "dest": "/test/test-function.js" },
         { "src": "/info", "dest": "/index/index.js" },
         { "src": "/", "dest": "/index/index.html" },
-        {"src": "/(.*)","status": 404,"dest": "/404.html"}
+        {"src": "/(.*)","status": 404,"dest": "/404/index.html"}
     ]
 }
