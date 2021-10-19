@@ -3,7 +3,7 @@ const request = require("request");
 const fs = require("fs");
 
 var param;
-const prefix = "http://api.xecades.xyz";
+const prefix = "http://luogu-user-card-jz.vercel.app/";
 const offset = [0, 0, 4.8, 2.7];
 const icons = [
     "site",
@@ -86,7 +86,7 @@ async function getSocial() {
     for (var i = 0; i < can.length; i++) {
         ret += `
         <g class="item">
-            <image class="icon" transform="translate(350 ${margin + sp * i + sp / 2 - 16})" href="${await readSVG(`${prefix}/res/icon/${can[i]}.svg`)}"/>
+            <image class="icon" transform="translate(350 ${margin + sp * i + sp / 2 - 16})" href="${await readSVG(`${prefix}/index/res/icon/${can[i]}.svg`)}"/>
             <text class="text" transform="translate(370 ${margin + 12 + sp * i + sp / 2 - 16})">${getParam(can[i])}</text>
         </g>`;
     }
@@ -127,15 +127,15 @@ function getWeekday() {
 }
 
 module.exports = async (req, res) => {
-    if (!req.url.includes("Xecades"))
+    if (!req.url.includes("Jerry-Zhou"))
         console.log("[Running] " + decodeURI(req.url));
 
     moment.locale("zh-cn");
-    param = new URLSearchParams(req.url.split("/api")[1]);
+    param = new URLSearchParams(req.url.split("/info")[1]);
 
     res.setHeader("Content-Type", "image/svg+xml");
     const {
-        background = await readImage(`${prefix}/res/bg/${getBG()}.png`),
+        background = await readImage(`${prefix}/index/res/bg/${getBG()}.png`),
         bg_offset  = 250 - getBGOffset(),
         socialText = await getSocial(),
         dayOfYear  = moment().dayOfYear(),
@@ -163,7 +163,7 @@ module.exports = async (req, res) => {
             #quote .text { font-size: 10px; fill: ${fontColor}; font-weight: lighter; }
         </style>
     </defs>
-    <title>Postcard | Xecades</title>
+    <title>Postcard | Jerry-Zhou</title>
     
     <g id="image">
         <line class="line" x1="250.5" y1="20" x2="250.5" y2="170"/>

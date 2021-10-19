@@ -127,11 +127,11 @@ function getWeekday() {
 }
 
 module.exports = async (req, res) => {
-    if (!req.url.includes("Xecades"))
+    if (!req.url.includes("Jerry-Zhou"))
         console.log("[Running] " + decodeURI(req.url));
 
     moment.locale("zh-cn");
-    param = new URLSearchParams(req.url.split("/api/index.js")[1]);
+    param = new URLSearchParams(req.url.split("/info")[1]);
 
     res.setHeader("Content-Type", "image/svg+xml");
     const {
@@ -163,7 +163,7 @@ module.exports = async (req, res) => {
             #quote .text { font-size: 10px; fill: ${fontColor}; font-weight: lighter; }
         </style>
     </defs>
-    <title>Postcard | Xecades</title>
+    <title>Postcard | Jerry-Zhou</title>
     
     <g id="image">
         <line class="line" x1="250.5" y1="20" x2="250.5" y2="170"/>
