@@ -62,13 +62,13 @@ body{overflow:hidden;}
   transition: all 0.8s ease;
 }
 .about .social.portfolio .icon {
-  background-image: url(../fonts/link.svg);
+  background-image: url(/404/fonts/link.svg);
 }
 .about .social.dribbble {
   transition: all 0.3s ease;
 }
 .about .social.dribbble .icon {
-  background-image: url(../fonts/dribbble.svg);
+  background-image: url(/404/fonts/dribbble.svg);
 }
 .about .social.linkedin {
   transition: all 0.8s ease;

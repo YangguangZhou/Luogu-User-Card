@@ -1,6 +1,0 @@
-function() {
-  var kw = $('#_fix_search').val()
-  if (kw) {
-    window.location.href = "http://www.17sucai.com/search/" + kw;
-  }
-}
