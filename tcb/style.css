@@ -1,10 +1,10 @@
 @import url(https://fonts.loli.net/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap);
 
-* {
+/* * {
     font-family: "EB Garamond", source-han-serif-sc, "source han serif sc",
         "source han serif cn", "source han serif tc", "source han serif tw",
         "source han serif", "simsun", songti sc, microsoft yahei, serif;
-}
+} */
 
 ::-webkit-scrollbar {
     width: 0 !important;
@@ -22,14 +22,14 @@ body {
 }
 
 #app {
-    margin-top: 17px;
+    margin-top: 300px;
     display: inline-block;
     width: 100%;
     max-width: 961px;
     left: 50%;
     position: relative;
     transform: translate(-50%, 0);
-    color: #666;
+    color: #000;
 }
 
 .image {
