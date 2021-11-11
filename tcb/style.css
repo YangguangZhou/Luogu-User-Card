@@ -89,8 +89,8 @@ body {
 
 .counter {
     text-align: center;
-    margin-top: 10px;
-    color: #999;
+    bottom: 25px;
+    color: #888;
     font-size: 14px;
 }
 
@@ -124,6 +124,7 @@ body {
     font-size: 50px;
     margin-bottom: 20px;
     width: 100%;
+    color: #fff;
 }
 
 .github-corner:hover .octo-arm {
