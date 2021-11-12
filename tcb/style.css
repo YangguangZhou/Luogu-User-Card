@@ -88,9 +88,10 @@ body {
 }
 
 .counter {
+    position: absolute;
     text-align: center;
     bottom: 25px;
-    color: #888;
+    color: #ccc;
     font-size: 14px;
 }
 
