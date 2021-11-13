@@ -119,6 +119,18 @@ body {
     opacity: .5;
 }
 
+.tpgh{
+    border：none;
+    border: 0px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 15px / 50%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
 .title {
     text-align: center;
     font-size: 50px;
