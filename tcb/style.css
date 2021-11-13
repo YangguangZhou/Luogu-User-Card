@@ -119,9 +119,8 @@ body {
     opacity: .5;
 }
 
-.tpgh{
-    border：none;
-    border: 0px;
+.togh{
+    border: none;
     background-color: #fff;
     color: #000;
     border-radius: 15px / 50%;
