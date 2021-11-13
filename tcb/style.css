@@ -120,6 +120,8 @@ body {
 }
 
 .togh{
+    display:block;
+    margin:0 auto;
     border: none;
     background-color: #fff;
     color: #000;
