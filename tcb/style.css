@@ -125,6 +125,7 @@ body {
     margin-bottom: 20px;
     width: 100%;
     color: #fff;
+    font-weight: bold;
 }
 
 .github-corner:hover .octo-arm {
