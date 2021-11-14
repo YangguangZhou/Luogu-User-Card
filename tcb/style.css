@@ -119,17 +119,19 @@ body {
     opacity: .5;
 }
 
-.togh{
-    display:block;
-    margin:0 auto;
+.togh {
+    display: block;
+    margin: 0 auto;
     border: none;
     background-color: #fff;
     color: #000;
-    border-radius: 15px / 50%;
+    border-radius: 30px / 90%;
     text-align: center;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 17px;
     cursor: pointer;
+    line-height: 35px;
+    width: 175px;
 }
 
 .title {
