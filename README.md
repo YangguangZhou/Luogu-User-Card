@@ -1,4 +1,9 @@
 > 注意：为了不滥用洛谷服务器流量，本项目利用 vercel 的边缘缓存功能缓存了 12 小时数据，即同一个用户卡片 **24 小时内最多只会向洛谷服务器请求 2 次数据**，并且只有在用户访问卡片时才会请求数据。不过，可以在链接最后带上`&disable_cache=true`禁用缓存。
+
+---
+
+# [Luogu-User-Card](https://luogu-user-card-jz.vercel.app/)
+
 ## 简介
 
 ![stars](https://badgen.net/github/stars/YangguangZhou/Luogu-User-Card)
