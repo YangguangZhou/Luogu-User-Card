@@ -4,7 +4,9 @@
 
 # [Luogu-User-Card](https://luogu-user-card-jz.vercel.app/)
 
-## 简介
+---
+
+# 简介
 
 ![stars](https://badgen.net/github/stars/YangguangZhou/Luogu-User-Card)
 ![forks](https://badgen.net/github/forks/YangguangZhou/Luogu-User-Card)
@@ -16,24 +18,9 @@
 
 `Luogu-User-Card`是一个动态生成洛谷用户数据卡片的工具，可以展示自己的做题情况。可以用于个人主页、博客、github等可以插入图片的地方。
 
-## TODO
+# 如何使用
 
-- [x] ~~修复获取数据错误和用户设置数据不可见的bug~~
-- [x] ~~增加黑暗模式~~
-- [x] ~~增加咕值卡片~~
-
-以上内容由原作者完成，以下内容由我完成。
-
-- [x] ~~增加About卡片~~
-- [x] ~~增加用户 tag~~
-- [x] ~~增加“卡片生成时间”标签~~
-- [x] ~~自动从咕值排名中获取咕值~~
-- [x] ~~禁用缓存~~
-- [x] ~~在练习情况里增加“写挂了”（实际执行情况是“心有余而力不足”）~~
-
-## 如何使用
-
-### 基本信息
+## 基本信息
 
 ![Jerry_Zhou的基本信息](https://luogu-user-card-jz.vercel.app/about?id=253620)
 
@@ -53,7 +40,7 @@
    [![Jerry_Zhou的基本信息](https://luogu-user-card-jz.vercel.app/about?id=253620)](https://www.luogu.com.cn/user/253620)
    ```
 
-### 练习情况
+## 练习情况
 
 ![Jerry_Zhou的练习情况](https://luogu-user-card-jz.vercel.app/practice?id=253620)
 
@@ -73,7 +60,7 @@
    [![Jerry_Zhou的练习情况](https://luogu-user-card-jz.vercel.app/practice?id=253620)](https://www.luogu.com.cn/user/253620)
    ```
 
-### 咕值信息
+## 咕值信息
 
 ![Jerry_Zhou的咕值信息](https://luogu-user-card-jz.vercel.app/guzhi?id=253620&scores=100,14,0,4,20)
 
@@ -96,7 +83,7 @@
 注意，若程序检测到咕值排名在1000名以内，则程序会自动从“咕值排名”中获取咕值。若获取成功，程序将无视用户输入。不过此功能偶尔会出BUG，所以最好还是手动设置一下咕值吧。
 
 
-### 自定义选项
+## 自定义选项
 
 使用卡片时，支持设定自定义效果选项，可以组合使用。
 
@@ -131,19 +118,19 @@
    
 4. **禁用缓存**，默认情况下，程序会有12小时的缓存。但是只需在链接最后带上`&disable_cache=true`即可禁用缓存，每次访问都将刷新。
 
-## 自行部署
+# 自行部署
 
 如果想要自行试验或者二次开发可以自行部署到自己的 vercel 服务器，登录 [vercel](https://vercel.com/) 后，点击下方按钮即可部署。
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/YangguangZhou/Luogu-User-Card)
 
-## 如何参与贡献
+# 如何参与贡献
 
-#### 提供bug反馈或建议
+## 提供bug反馈或建议
 
 使用 [issue](https://github.com/YangguangZhou/Luogu-User-Card/issues) 反馈bug时，尽可能详细描述 bug 及其复现步骤
 
-#### 贡献代码的步骤
+## 贡献代码的步骤
 
 1. fork项目到自己的repo
 2. 把fork过去的项目也就是你的项目clone到你的本地
@@ -152,10 +139,10 @@
 5. 在Github首页可以看到一个 pull request 按钮，点击它，填写一些说明信息，然后提交即可。
 6. 等待作者合并
 
-## 其他
+# 其他
 
 如果对你有所帮助的话，希望能在右上角点一个 star (★ ω ★)
 
-## LICENSE
+# LICENSE
 
 [![GNU Lesser General Public License v2.1](https://badgen.net/github/license/cyrxdzj/luogu-card)](https://github.com/YangguangZhou/Luogu-User-Card/blob/master/LICENSE)
