@@ -4,6 +4,8 @@
 
 # [Luogu-User-Card](https://luogu-user-card-jz.vercel.app/)
 
+# [使用方法](https://jzblog.vercel.app/article/Luogu-User-Card/)
+
 ---
 
 # 简介
