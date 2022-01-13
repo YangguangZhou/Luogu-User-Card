@@ -3,7 +3,7 @@ const request = require("request");
 const fs = require("fs");
 
 var param;
-const prefix = "http://luogu-user-card-jz.vercel.app/";
+const prefix = "http://api.jerryz.com.cn/";
 const offset = [0, 0, 4.8, 2.7];
 const icons = [
     "site",
