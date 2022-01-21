@@ -5,7 +5,6 @@
         { "src": "/guzhi", "dest": "/api/guzhi.js" },
         { "src": "/about", "dest": "/api/about.js" },
         { "src": "/test-function", "dest": "/test/test-function.js" },
-        { "src": "/info", "dest": "/api/index.js" },
         { "src": "/shield", "dest": "/api/shields.js" },
         { "src": "/", "dest": "/index/index.html" },
         {"src": "/(.*)","status": 404,"dest": "/404.html"}
