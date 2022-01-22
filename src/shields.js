@@ -1,4 +1,4 @@
-const anf = require('anafanafo');
+const anafanafo = require('anafanafo');
 const { renderError } = require("../src/common.js");
 const NAMECOLOR = {
 	Gray: "#bbbbbb",
@@ -43,7 +43,7 @@ const renderSVG = (stats, options) => {
 		{ label: "写挂了", color: "#996600", data: passed[8] },
 	];
 
-    let nameLength = anf(name) * 0.11, onameLength = nameLength;
+    let nameLength = anafanafo(name) * 0.11, onameLength = nameLength;
 
     let ccf = "";
 
@@ -52,12 +52,12 @@ const renderSVG = (stats, options) => {
     let p1 = "", p2 = "", s1 = nameLength + 6, s2 = nameLength + 9;
 
     for (let i = 0; i < 8; ++i) {
-        const nameL = anf(passed[i].toString()) * 0.11;
+        const nameL = anafanafo(passed[i].toString()) * 0.11;
         p1 += `<rect x="${s1}" width="${nameL + 6}" height="19" fill="${datas[i].color}"/>`;
         s1 += nameL + 6;
     }
     for (let i = 0; i < 8; ++i) {
-        const nameL = anf(passed[i].toString()) * 0.11;
+        const nameL = anafanafo(passed[i].toString()) * 0.11;
         p2 += `<text x="${s2}" y="14" fill="#fff" textLength="${nameL}">${passed[i]}</text>`;
         s2 += nameL + 6;
     }
