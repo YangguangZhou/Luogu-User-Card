@@ -24,16 +24,16 @@ async function fetchAbout(id) {
         ccfLevel: 0,
         slogan: "",
         followerCount: 0,
-        followingCount:0,
-        ranking:-1,
-        userType:"Not found.",
-        tag:""
+        followingCount: 0,
+        ranking: -1,
+        userType: "Not found.",
+        tag: ""
     }
-    if(res.data.code !== 200) {
+    if (res.data.code !== 200) {
         return about;
     }
     const user = res.data.currentData.user;
-    
+
     about.name = decodeURI(user.name);
     about.color = decodeURI(user.color);
     about.ccfLevel = user.ccfLevel;
@@ -41,9 +41,9 @@ async function fetchAbout(id) {
     about.followerCount = user.followerCount;
     about.followingCount = user.followingCount;
     about.ranking = user.ranking;
-    about.userType = user.isAdmin?"管理员":(user.isBanned?"封禁用户":"普通用户");
+    about.userType = user.isAdmin ? "管理员" : (user.isBanned ? "封禁用户" : "普通用户");
     about.tag = decodeURI(user.badge);
-    
+
     return about;
 }
 
@@ -59,19 +59,19 @@ const renderSVG = (about, options) => {
         userType,
         tag
     } = about;
-    
-    const { 
-        hideTitle, 
+
+    const {
+        hideTitle,
         darkMode,
-        cardWidth = 500, 
+        cardWidth = 500,
     } = options || {};
-    
+
     const paddingX = 25;
-    const body = renderAboutText(userType,followerCount,followingCount,ranking,slogan,darkMode);
-    const title = renderNameTitle(name, color, ccfLevel, "的基本信息", cardWidth, "",tag);
-    
+    const body = renderAboutText(userType, followerCount, followingCount, ranking, slogan, darkMode);
+    const title = renderNameTitle(name, color, ccfLevel, "的基本信息", cardWidth, "", tag);
+
     return new Card({
-        width: cardWidth - 2*paddingX,
+        width: cardWidth - 2 * paddingX,
         height: 4 * 30 + 10,
         hideTitle,
         darkMode,

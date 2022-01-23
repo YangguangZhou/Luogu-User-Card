@@ -4,21 +4,21 @@ const { renderError } = require("../src/common.js")
 const axios = require("axios");
 
 async function fetchGuzhi(id, ranking) {
-    var page=Math.floor((ranking-1)/50) + 1;
-    
+    var page = Math.floor((ranking - 1) / 50) + 1;
+
     const res = await axios.get(`https://www.luogu.com.cn/ranking?page=${page}&_contentOnly`);
-    
-    if(res.data.code != 200) {
+
+    if (res.data.code != 200) {
         return "Not found.";
     }
-    
-    const rankList=res.data.currentData.rankList.result;
-    
-    for(var index=0;index<50;index++) {
-        if(!rankList[index]) {
+
+    const rankList = res.data.currentData.rankList.result;
+
+    for (var index = 0; index < 50; index++) {
+        if (!rankList[index]) {
             continue;
         }
-        if(rankList[index].user.uid==id) {
+        if (rankList[index].user.uid == id) {
             return `${rankList[index].basicRating},${rankList[index].practiceRating},${rankList[index].socialRating},${rankList[index].contestRating},${rankList[index].prizeRating}`;
         }
     }
@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
     var finally_scores
 
     res.setHeader("Content-Type", "image/svg+xml");
-    if(!disable_cache){
+    if (!disable_cache) {
         res.setHeader("Cache-Control", "public, max-age=43200"); // 43200s（12h） cache
     }
 
@@ -42,27 +42,24 @@ module.exports = async (req, res) => {
             renderError(`卡片宽度"${card_width}"不合法`, { darkMode: dark_mode })
         );
     }
-    if(id != undefined && !regNum.test(id)) {
-        return res.send(renderError(`"${id}"不是一个合法uid`, {darkMode: dark_mode}));
+    if (id != undefined && !regNum.test(id)) {
+        return res.send(renderError(`"${id}"不是一个合法uid`, { darkMode: dark_mode }));
     }
 
     let about = null;
 
-    if(id != undefined) {
+    if (id != undefined) {
         about = await fetchAbout(id);
     }
-    
-    if(about.ranking>=1&&about.ranking<=1000)
-    {
-        finally_scores=await fetchGuzhi(id, about.ranking);
-        if(finally_scores=="Not found.")
-        {
-            finally_scores=scores;
+
+    if (about.ranking >= 1 && about.ranking <= 1000) {
+        finally_scores = await fetchGuzhi(id, about.ranking);
+        if (finally_scores == "Not found.") {
+            finally_scores = scores;
         }
     }
-    else
-    {
-        finally_scores=scores;
+    else {
+        finally_scores = scores;
     }
 
     return res.send(

@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
 
   const validId = /^[1-9]\d*$/;
 
-  if(!validId.test(id)) {
+  if (!validId.test(id)) {
     return res.send(renderError(`"${id}"不是一个合法uid`));
   }
 
