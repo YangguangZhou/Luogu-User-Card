@@ -54,7 +54,6 @@ class Card {
 
         return `
             <svg xmlns="http://www.w3.org/2000/svg" width="${cardSize.width}" height="${cardSize.height}" viewBox="0 0 ${cardSize.width} ${cardSize.height}" fill="none">
-                <title>${name}</title>
                 <link type="favicon" rel="shortcut icon" href="/favicon.png" />    
                 <style>
                     .text { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: ${this.darkMode ? "#fffefe" : "#333333"} }
