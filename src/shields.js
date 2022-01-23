@@ -70,7 +70,7 @@ const renderSVG = (stats, options) => {
         ${p1}
       </g>
       <g fill="#fff" text-rendering="geometricPrecision" font-size="15" font-family="Segoe UI">
-        <text x="3" y="14" fill="${NAMECOLOR[color]}" textLength="${onameLength}">${name}</text>
+        <text x="3" y="14" fill="${NAMECOLOR[color]}" textLength="${onameLength}" font-weight="bold">${name}</text>
         ${ccf}
         ${p2}
       </g>
