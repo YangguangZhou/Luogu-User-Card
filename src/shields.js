@@ -25,8 +25,8 @@ const renderCCFBadge = (level, x) => {
   </svg>`;
 };
 const renderSVG = (stats, options) => {
-	const { name, color, ccfLevel, passed, hideInfo, ranking } = stats;
-
+	const { name, color, ccfLevel, passed, unpassed, hideInfo, ranking } = stats;
+	passed[8]=unpassed
 	if (hideInfo) {
 		return renderError("用户开启了“完全隐私保护”，获取数据失败");
 	}
@@ -40,7 +40,7 @@ const renderSVG = (stats, options) => {
 		{ label: "提高+/省选-", color: "#3498db", data: passed[5] },
 		{ label: "省选/NOI-", color: "#9d3dcf", data: passed[6] },
 		{ label: "NOI/NOI+/CTSC", color: "#0e1d69", data: passed[7] },
-		{ label: "写挂了", color: "#996600", data: passed[8] },
+		{ label: "尝试过的题目", color:"#0101DF", data: passed[8] }
 	];
 
     let nameLength = anafanafo(name) * 0.11, onameLength = nameLength;
@@ -51,12 +51,12 @@ const renderSVG = (stats, options) => {
 
     let p1 = "", p2 = "", s1 = nameLength + 6, s2 = nameLength + 9;
 
-    for (let i = 0; i < 8; ++i) {
+    for (let i = 0; i <= 8; ++i) {
         const nameL = anafanafo(passed[i].toString()) * 0.11;
         p1 += `<rect x="${s1}" width="${nameL + 6}" height="19" fill="${datas[i].color}"/>`;
         s1 += nameL + 6;
     }
-    for (let i = 0; i < 8; ++i) {
+    for (let i = 0; i <= 8; ++i) {
         const nameL = anafanafo(passed[i].toString()) * 0.11;
         p2 += `<text x="${s2}" y="14" fill="#fff" textLength="${nameL}">${passed[i]}</text>`;
         s2 += nameL + 6;
@@ -68,7 +68,7 @@ const renderSVG = (stats, options) => {
         <rect width="${nameLength + 6}" height="19" fill="#fff"/>
         ${p1}
       </g>
-      <g fill="#fff" font-family="Verdana, Microsoft Yahei" text-rendering="geometricPrecision" font-size="11">
+      <g fill="#fff" text-rendering="geometricPrecision">
         <text x="3" y="14" fill="${NAMECOLOR[color]}" textLength="${onameLength}">${name}</text>
         ${ccf}
         ${p2}
