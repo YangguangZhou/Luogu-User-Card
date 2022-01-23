@@ -64,6 +64,7 @@ const renderSVG = (stats, options) => {
 
     return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${s2}" height="19" role="img">
       <title>${name}</title>
+	  <link type="favicon" rel="shortcut icon" href="/favicon.png" />
       <g>
         <rect width="${nameLength + 6}" height="19" fill="#fff"/>
         ${p1}

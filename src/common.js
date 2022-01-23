@@ -53,6 +53,7 @@ class Card {
         if(!this.hideBorder) borderColor = this.darkMode?"#444444":"#E4E2E2";
 
         return `
+            <link type="favicon" rel="shortcut icon" href="/favicon.png" />
             <svg xmlns="http://www.w3.org/2000/svg" width="${cardSize.width}" height="${cardSize.height}" viewBox="0 0 ${cardSize.width} ${cardSize.height}" fill="none">
                 <style>
                     .text { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: ${this.darkMode?"#fffefe":"#333333"} }
@@ -178,6 +179,7 @@ const renderNameTitle = (name, color, ccfLevel, title, cardWidth, rightTop, tag)
     const tagSVG = tag?`<defs><filter x="-0.05" y="-0.05" width="1.1" height="1.1" id="tagFilter"><feFlood flood-color="${nameColor}"/><feComposite in="SourceGraphic"/></filter></defs><text filter="url(#tagFilter)" x="${nameLength + (ccfLevel < 3 ? 10 : 28)}" y="-1" fill="white" font-weight="bold" textLength="${tagLength}" font-size="12">${tag}</text>`:``;
 
     return `
+    <title>${name}</title>
     <g transform="translate(0, 0)" font-family="Verdana, Microsoft Yahei" text-rendering="geometricPrecision">
         <text x="0" y="0" fill="${nameColor}" font-weight="bold" textLength="${nameLength}" font-size="18">
             ${name}
