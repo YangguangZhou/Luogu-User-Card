@@ -53,13 +53,13 @@
 1. 仅使用图片：直接复制以下内容到任意 markdown 编辑器中，并将`?id=`后面的数字更改为自己的 id 即可（id是洛谷的用户编号）。
 
    ```markdown
-   ![Jerry_Zhou的基本信息](https://api.jerryz.com.cn/shield?id=253620)
+   ![Jerry_Zhou的练习徽章](https://api.jerryz.com.cn/shield?id=253620)
    ```
 
 2. 使用图片链接：复制以下内容，第二个小括号内的地址是点击该图片跳转的地址，建议设置为洛谷个人练习页面。
 
    ```markdown
-   [![Jerry_Zhou的练习情况](https://api.jerryz.com.cn/shield?id=253620)](https://www.luogu.com.cn/user/253620#practice)
+   [![Jerry_Zhou的练习徽章](https://api.jerryz.com.cn/shield?id=253620)](https://www.luogu.com.cn/user/253620#practice)
    ```
 
 ## 练习情况
