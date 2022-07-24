@@ -4,7 +4,7 @@
 
 # [Luogu-User-Card](https://api.jerryz.com.cn/)
 
-# [使用方法](https://jzblog.vercel.app/article/Luogu-User-Card/)
+# [使用方法](https://blog.jerryz.com.cn/article/Luogu-User-Card/)
 
 ---
 
@@ -112,7 +112,7 @@
 1. **隐藏标题**，只需在链接最后带上`&hide_title=true`即可，例如：
 
    ```markdown
-   ![Jerry_Zhou的练习情况](https://luogu-card.vercel.app/practice?id=253620&hide_title=true)
+   ![Jerry_Zhou的练习情况](https://api.jerryz.com.cn/practice?id=253620&hide_title=true)
    ```
 
    效果：
