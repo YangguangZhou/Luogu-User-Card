@@ -10,11 +10,10 @@
 
 # 简介
 
-![stars](https://badgen.net/github/stars/YangguangZhou/Luogu-User-Card)
-![forks](https://badgen.net/github/forks/YangguangZhou/Luogu-User-Card)
+![stars](https://img.shields.io/github/stars/YangguangZhou/Luogu-User-Card?style=flat)
 ![visitor](https://visitor-badge.laobi.icu/badge?page_id=Luogu-User-Card)
 ![last commit](https://shields.io/github/last-commit/YangguangZhou/Luogu-User-Card?style=flat)
-![top language](https://img.shields.io/github/languages/top/YangguangZhou/Luogu-User-Card?style=flat)
+![top language](https://img.shields.io/github/languages/top/YangguangZhou/Luogu-User-Card)
 
 ![Luogu-User-Card](https://github-readme-stats.vercel.app/api/pin/?username=YangguangZhou&repo=Luogu-User-Card)
 
