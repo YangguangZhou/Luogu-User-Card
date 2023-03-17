@@ -1,12 +1,12 @@
 {
-    "name": "luogu-stats-card",
+    "name": "luogu-user-card",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {},
     "keywords": [],
-    "author": "wao",
-    "license": "MIT",
+    "author": "Jerry Zhou",
+    "license": "LGPL",
     "dependencies": {
       "anafanafo": "^1.0.0",
       "axios": "^0.21.1"
