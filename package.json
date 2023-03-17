@@ -9,6 +9,7 @@
     "license": "LGPL",
     "dependencies": {
         "anafanafo": "^1.0.0",
-        "axios": ">=0.21.1"
+        "axios": ">=0.21.1",
+        "yarn": "^1.22.19"
     }
 }
