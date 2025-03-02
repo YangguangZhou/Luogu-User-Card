@@ -4,55 +4,756 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Luogu-User-Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luogu User Card Generator</title>
+    <link type="favicon" rel="shortcut icon" href="/favicon.png" />
     <meta name="Keywords" content="Jerry_Zhou,JerryZhou,Jerry,YangguangZhou,周洋光,洛谷,洛谷用户信息卡片,用户信息,Luogu,Luogu-User-Card">
     <meta name="description" content="洛谷用户信息卡片">
-    <link type="favicon" rel="shortcut icon" href="/favicon.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.11.1/lib/theme-chalk/index.css">
-    <link rel="stylesheet" href="/index/style.css">
     <script async src="https://umami.jerryz.com.cn/script.js" data-website-id="d409929d-5726-45bb-92f6-25fb2d4bb60b"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2597042766299857"
         crossorigin="anonymous"></script>
+    <!-- Modern frameworks: Vue 3 + Element Plus -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/index.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/index.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/locale/zh-cn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #3B82F6;
+            --primary-light: #93C5FD;
+            --primary-dark: #1D4ED8;
+            --accent-color: #EC4899;
+            --text-primary: #1F2937;
+            --text-secondary: #6B7280;
+            --bg-primary: #F9FAFB;
+            --bg-secondary: #FFFFFF;
+            --border-color: #E5E7EB;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --transition: all 0.3s ease;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 0.8rem;
+            --spacing-lg: 1.2rem;
+            --spacing-xl: 1.8rem;
+            --spacing-2xl: 2.5rem;
+            --el-component-size: 36px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            font-family: 'Nunito', 'Noto Serif SC', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary-light);
+            border-radius: var(--radius-sm);
+        }
+        
+        ::-webkit-scrollbar-track {
+            background-color: var(--bg-primary);
+        }
+        
+        /* App Container */
+        #app {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+        
+        /* Cards & Sections */
+        .card {
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        
+        section {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        /* Typography */
+        .title {
+            font-family: 'Nunito', 'Noto Serif SC', sans-serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-dark);
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+        
+        .description {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-lg);
+            line-height: 1.5;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .section-title::before {
+            content: "";
+            display: block;
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: var(--radius-sm);
+        }
+        
+        /* Preview Image */
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .image-container {
+            width: 100%;
+            max-width: 700px;
+            margin: var(--spacing-md) 0;
+            position: relative;
+            overflow: hidden;
+            line-height: 0; /* Fix white space issue */
+            background-color: transparent;
+        }
+        
+        .preview-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            transition: var(--transition);
+            cursor: pointer;
+            display: block; /* Fix white space issue */
+            background-color: transparent;
+        }
+        
+        .preview-image:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Image Link */
+        .image-link-container {
+            width: 100%;
+            max-width: 700px;
+            margin: var(--spacing-md) auto;
+        }
+        
+        .image-link {
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            word-break: break-all;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: block;
+            width: 100%;
+        }
+        
+        .image-link:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Form Elements */
+        .form-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* Card Type Selector */
+        .card-type-selector {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Example Cards */
+        .example-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .example-card {
+            text-align: center;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .example-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .example-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .example-card h3 {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .example-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background-color: #f1f5f9;
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-sm);
+            margin: var(--spacing-sm) 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+            font-size: 0.9rem;
+            color: #334155;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .help-text, .counter, .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .copyright a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .copyright a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(3px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(3px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.2s ease forwards;
+        }
+        
+        .fade-out {
+            animation: fadeOut 0.2s ease forwards;
+        }
+        
+        /* Customize Element Plus */
+        .el-button {
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .el-button--primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .el-button--primary:hover, .el-button--primary:focus {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .el-input__inner, .el-input__wrapper {
+            border-radius: var(--radius-md) !important;
+        }
+        
+        .el-radio-button__inner {
+            border-radius: 0;
+        }
+        
+        .el-radio-group .el-radio-button:first-child .el-radio-button__inner {
+            border-top-left-radius: var(--radius-md);
+            border-bottom-left-radius: var(--radius-md);
+        }
+        
+        .el-radio-group .el-radio-button:last-child .el-radio-button__inner {
+            border-top-right-radius: var(--radius-md);
+            border-bottom-right-radius: var(--radius-md);
+        }
+        
+        /* Width Slider Improvements */
+        .width-slider-container {
+            margin-top: var(--spacing-sm);
+            padding: 0 var(--spacing-xs);
+        }
+        
+        .width-value-display {
+            text-align: center;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            :root {
+                --spacing-lg: 1rem;
+                --spacing-xl: 1.5rem;
+                --spacing-2xl: 2rem;
+            }
+            
+            #app {
+                padding: var(--spacing-md);
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: var(--spacing-md);
+            }
+
+            .example-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
 </head>
 
-<body
-    style="background-image: url(https://img.examcoo.com/ask/7386438/202111/163673216190400.jpg); background-size: cover;">
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?0c94116681d5f72b3f71b1366c08e85d";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+<body>
     <div id="app">
-        <div class="title">Luogu-User-Card</div>
-        <a href="https://blog.jerryz.com.cn/article/Luogu-User-Card/" class="togh">
-            <button class="togh">查看使用方法</button>
-        </a>
-        <div class="counter">
-            <span id="busuanzi_value_page_pv"><i class="el-icon-loading"></i></span> Views |
-            <span id="busuanzi_value_site_uv"><i class="el-icon-loading"></i></span> Viewers
-        </div>
+        <h1 class="title">洛谷用户卡片生成器</h1>
+        <p class="description">
+            Luogu-User-Card是一个动态生成洛谷用户数据卡片的工具，可以展示用户的基本信息、做题情况、咕值信息等，可以插入到个人主页、博客、GitHub等支持插入图片的地方。
+        </p>
+
+        <section class="card-type-selector">
+            <div class="card">
+                <h2 class="section-title">卡片类型选择</h2>
+                <el-radio-group v-model="cardType" @change="updatePreview">
+                    <el-radio-button label="practice">练习情况</el-radio-button>
+                    <el-radio-button label="about">基本信息</el-radio-button>
+                    <el-radio-button label="guzhi">咕值信息</el-radio-button>
+                    <el-radio-button label="shield">练习徽章</el-radio-button>
+                </el-radio-group>
+
+                <div class="example-cards">
+                    <div class="example-card" @click="selectCardType('practice')">
+                        <img src="https://api.jerryz.com.cn/practice?id=253620" alt="练习情况示例">
+                        <h3>练习情况</h3>
+                        <p>详细展示用户的做题情况</p>
+                    </div>
+                    <div class="example-card" @click="selectCardType('about')">
+                        <img src="https://api.jerryz.com.cn/about?id=253620" alt="基本信息卡片示例">
+                        <h3>基本信息</h3>
+                        <p>显示用户类型、关注、咕值排名、个性签名</p>
+                    </div>
+                    <div class="example-card" @click="selectCardType('guzhi')">
+                        <img src="https://api.jerryz.com.cn/guzhi?id=253620&scores=100,14,0,4,20" alt="咕值信息示例">
+                        <h3>咕值信息</h3>
+                        <p>展示用户的咕值详情</p>
+                    </div>
+                    <div class="example-card" @click="selectCardType('shield')">
+                        <img src="https://api.jerryz.com.cn/shield?id=253620" alt="练习徽章示例">
+                        <h3>练习徽章</h3>
+                        <p>简洁显示用户做题数据</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="image-section">
+            <div class="image-container">
+                <el-image class="preview-image" :src="previewUrl" @click="openImage" fit="cover">
+                    <template #placeholder>
+                        <div style="display: flex; justify-content: center; align-items: center; height: 300px; background-color: #f5f7fa;">
+                            <el-icon style="font-size: 30px;"><i class="el-icon-loading"></i></el-icon>
+                        </div>
+                    </template>
+                </el-image>
+            </div>
+
+            <div class="image-link-container">
+                <div class="image-link" @click="copyToClipboard">
+                    <span :id="'link'" ref="linkText">{{ previewUrl }}</span>
+                </div>
+            </div>
+
+            <div class="image-link-container">
+                <div class="code-block" @click="copyMarkdownCode" style="cursor: pointer;">
+                    <span ref="markdownText">{{ markdownCode }}</span>
+                </div>
+                <div style="text-align: center; margin-top: 5px; font-size: 0.8rem; color: var(--text-secondary);">
+                    点击复制 Markdown 代码
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">基本设置</h2>
+            <div class="card">
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>洛谷用户 ID</label>
+                        <el-input v-model="userId" placeholder="输入洛谷用户ID" @input="updatePreview"></el-input>
+                    </div>
+
+                    <!-- 咕值信息特有的输入框 - 拆分成五个独立输入框 -->
+                    <template v-if="cardType === 'guzhi'">
+                        <div class="form-group">
+                            <label>基础信用</label>
+                            <el-input-number v-model="guzhiScore1" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                        </div>
+                        <div class="form-group">
+                            <label>练习情况</label>
+                            <el-input-number v-model="guzhiScore2" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                        </div>
+                        <div class="form-group">
+                            <label>社区贡献</label>
+                            <el-input-number v-model="guzhiScore3" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                        </div>
+                        <div class="form-group">
+                            <label>比赛情况</label>
+                            <el-input-number v-model="guzhiScore4" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                        </div>
+                        <div class="form-group">
+                            <label>获得成就</label>
+                            <el-input-number v-model="guzhiScore5" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">自定义选项</h2>
+            <div class="card">
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>隐藏标题</label>
+                        <el-switch v-model="hideTitle" @change="updatePreview"></el-switch>
+                    </div>
+
+                    <div class="form-group">
+                        <label>黑暗模式</label>
+                        <el-switch v-model="darkMode" @change="updatePreview"></el-switch>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>禁用缓存</label>
+                        <el-switch v-model="disableCache" @change="updatePreview"></el-switch>
+                    </div>
+
+                    <div class="form-group" v-if="cardType !== 'shield'">
+                        <label>自定义宽度</label>
+                        <div class="width-value-display">{{ cardWidth }}px</div>
+                        <div class="width-slider-container">
+                            <el-slider 
+                                v-model="cardWidth" 
+                                :min="500" 
+                                :max="1920" 
+                                :step="10"
+                                :format-tooltip="value => `${value}px`"
+                                @change="updatePreview">
+                            </el-slider>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">使用说明</h2>
+            <div class="card">
+                <p>将上方生成的链接复制到任意支持插入图片的地方即可使用。</p>
+                <p>如果要在 Markdown 中使用，可以使用以下格式：</p>
+                <div class="code-block">![洛谷用户卡片]({{ previewUrl }})</div>
+                <p>如果需要添加点击跳转，可以使用以下格式：</p>
+                <div class="code-block">[![洛谷用户卡片]({{ previewUrl }})](https://www.luogu.com.cn/user/{{ userId }})</div>
+                
+                <div style="margin-top: var(--spacing-lg);">
+                    <h3 style="margin-bottom: var(--spacing-sm);">注意事项：</h3>
+                    <ul style="list-style-position: inside; padding-left: var(--spacing-md);">
+                        <li>为了不滥用洛谷服务器流量，本项目利用 vercel 的边缘缓存功能缓存了 12 小时数据，即同一个用户卡片 <strong>24 小时内最多只会向洛谷服务器请求 2 次数据</strong>，并且只有在用户访问卡片时才会请求数据。</li>
+                        <li>开启"完全隐私保护"的用户可能无法正常获取数据。</li>
+                        <li>咕值信息卡片需要手动输入咕值数据，或者依赖于咕值排名在1000名以内自动获取。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="help-text">
+                温馨提示：点击预览图可查看大图，点击链接可复制内容
+            </div>
+
+            <div class="copyright">
+                <p>Luogu-User-Card 项目由 <a href="https://github.com/YangguangZhou" target="_blank">YangguangZhou</a> 开发</p>
+                <p>API 服务：<a href="https://api.jerryz.com.cn/" target="_blank">https://api.jerryz.com.cn/</a></p>
+                <p>查看更多信息请访问 <a href="https://github.com/YangguangZhou/Luogu-User-Card" target="_blank">GitHub 项目页面</a></p>
+            </div>
+        </footer>
     </div>
-    <a href="https://github.com/YangguangZhou/Luogu-User-Card" target="_blank" rel="nofollow" class="github-corner"
-        aria-label="View source on GitHub">
-        <svg width="80" height="80" viewBox="0 0 250 250"
-            style="fill: #191617; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
-            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-            <path
-                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-            <path
-                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-                fill="currentColor" class="octo-body"></path>
-        </svg>
-    </a>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/element-ui@2.11.1/lib/index.js"></script>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <script>
+        const { createApp, ref, computed, watch } = Vue;
+        
+        const app = createApp({
+            setup() {
+                // 基本数据
+                const cardType = ref('practice');
+                const userId = ref('253620');
+                const hideTitle = ref(false);
+                const darkMode = ref(false);
+                const cardWidth = ref(500);
+                const disableCache = ref(false);
+                // 拆分咕值得分为5个单独的值
+                const guzhiScore1 = ref(100); // 基础信用
+                const guzhiScore2 = ref(14);  // 练习情况
+                const guzhiScore3 = ref(0);   // 社区贡献
+                const guzhiScore4 = ref(4);   // 比赛情况
+                const guzhiScore5 = ref(20);  // 获得成就
+                const guzhiScores = computed(() => {
+                    return `${guzhiScore1.value},${guzhiScore2.value},${guzhiScore3.value},${guzhiScore4.value},${guzhiScore5.value}`;
+                });
+                
+                const baseURL = "https://api.jerryz.com.cn/";
+                const linkText = ref(null);
+                const markdownText = ref(null);
+                
+                // 计算预览URL
+                const previewUrl = computed(() => {
+                    let url = `${baseURL}${cardType.value}?id=${userId.value}`;
+                    
+                    // 如果是咕值卡片，添加scores参数
+                    if (cardType.value === 'guzhi' && guzhiScores.value) {
+                        url += `&scores=${guzhiScores.value}`;
+                    }
+                    
+                    // 添加自定义选项
+                    if (hideTitle.value) {
+                        url += '&hide_title=true';
+                    }
+                    
+                    if (darkMode.value) {
+                        url += '&dark_mode=true';
+                    }
+                    
+                    // 只有在非练习徽章类型时添加宽度参数
+                    if (cardWidth.value !== 500 && cardType.value !== 'shield') {
+                        url += `&card_width=${cardWidth.value}`;
+                    }
+                    
+                    if (disableCache.value) {
+                        url += '&disable_cache=true';
+                    }
+                    
+                    return url;
+                });
+                
+                // 计算Markdown代码
+                const markdownCode = computed(() => {
+                    return `![${userId.value}的洛谷用户卡片](${previewUrl.value})`;
+                });
+                
+                // 方法
+                const updatePreview = () => {
+                    // 预览URL会自动更新，因为它是一个计算属性
+                };
+                
+                const selectCardType = (type) => {
+                    cardType.value = type;
+                    updatePreview();
+                };
+                
+                const openImage = () => {
+                    window.open(previewUrl.value, "_blank");
+                };
+                
+                const fadeIn = (element) => {
+                    element.classList.add('fade-in');
+                    setTimeout(() => {
+                        element.classList.remove('fade-in');
+                    }, 200);
+                };
+                
+                const fadeOut = (element) => {
+                    element.classList.add('fade-out');
+                    setTimeout(() => {
+                        element.classList.remove('fade-out');
+                    }, 200);
+                };
+                
+                const copyToClipboard = () => {
+                    if (linkText.value) {
+                        navigator.clipboard.writeText(previewUrl.value).then(() => {
+                            const elementToCopy = linkText.value;
+                            fadeOut(elementToCopy);
+                            setTimeout(() => {
+                                elementToCopy.innerText = '链接已复制到剪贴板';
+                                fadeIn(elementToCopy);
+                                setTimeout(() => {
+                                    fadeOut(elementToCopy);
+                                    setTimeout(() => {
+                                        elementToCopy.innerText = previewUrl.value;
+                                        fadeIn(elementToCopy);
+                                    }, 200);
+                                }, 1000);
+                            }, 200);
+                        }).catch(err => {
+                            console.error('无法复制链接: ', err);
+                            ElementPlus.ElMessage.error('复制失败，请手动复制');
+                        });
+                    }
+                };
+                
+                const copyMarkdownCode = () => {
+                    if (markdownText.value) {
+                        navigator.clipboard.writeText(markdownCode.value).then(() => {
+                            ElementPlus.ElMessage.success('Markdown 代码已复制到剪贴板');
+                        }).catch(err => {
+                            console.error('无法复制 Markdown 代码: ', err);
+                            ElementPlus.ElMessage.error('复制失败，请手动复制');
+                        });
+                    }
+                };
+                
+                // 更新咕值得分，当单个得分改变时调用
+                const updateGuzhiScores = () => {
+                    // 由于 guzhiScores 是计算属性，它会自动更新
+                    // 只需触发预览更新
+                    updatePreview();
+                };
+
+                // 添加对卡片类型变化的监听
+                watch(cardType, (newType) => {
+                    // 如果切换到了练习徽章类型，重置宽度到默认值
+                    if (newType === 'shield') {
+                        cardWidth.value = 500;
+                    }
+                });
+
+                return {
+                    cardType,
+                    userId,
+                    hideTitle,
+                    darkMode,
+                    cardWidth,
+                    disableCache,
+                    guzhiScores,
+                    guzhiScore1,
+                    guzhiScore2,
+                    guzhiScore3,
+                    guzhiScore4,
+                    guzhiScore5,
+                    previewUrl,
+                    markdownCode,
+                    linkText,
+                    markdownText,
+                    updatePreview,
+                    selectCardType,
+                    openImage,
+                    copyToClipboard,
+                    copyMarkdownCode,
+                    updateGuzhiScores
+                };
+            }
+        });
+        
+        // 使用Element Plus，并设置中文
+        app.use(ElementPlus, {
+            locale: ElementPlus.zhCn
+        });
+        
+        // 挂载应用
+        app.mount('#app');
+    </script>
 </body>
 
 </html>
