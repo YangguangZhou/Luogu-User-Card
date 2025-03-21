@@ -14,7 +14,6 @@
   <a href="https://github.com/YangguangZhou/Luogu-User-Card/blob/master/LICENSE"><img src="https://img.shields.io/github/license/YangguangZhou/Luogu-User-Card?color=ff69b4&logo=gnu&style=flat-square" alt="license"></a>
   <a href="https://github.com/YangguangZhou/Luogu-User-Card/commits"><img src="https://img.shields.io/github/last-commit/YangguangZhou/Luogu-User-Card?color=orange&logo=github&style=flat-square" alt="last-commit"></a>
   <a href="https://github.com/YangguangZhou/Luogu-User-Card/issues"><img src="https://img.shields.io/github/issues/YangguangZhou/Luogu-User-Card?color=purple&logo=github&style=flat-square" alt="issues"></a>
-  <a href="https://api.jerryz.com.cn/"><img src="https://img.shields.io/website?down_color=red&down_message=离线&style=flat-square&up_color=green&up_message=在线&url=https%3A%2F%2Fapi.jerryz.com.cn%2F" alt="website-status"></a>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=YangguangZhou.Luogu-User-Card&style=flat-square" alt="visitors"/>
 </p>
 
