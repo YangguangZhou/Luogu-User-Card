@@ -5,19 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luogu User Card Generator</title>
-    <link type="favicon" rel="shortcut icon" href="/favicon.png" />
-    <meta name="Keywords" content="Jerry_Zhou,JerryZhou,Jerry,YangguangZhou,洛谷,洛谷用户信息卡片,用户信息,Luogu,Luogu-User-Card">
-    <meta name="description" content="洛谷用户信息卡片">
+    <title>洛谷用户卡片生成器 - 动态生成个性化洛谷成就卡片 | Luogu User Card</title>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta name="Keywords" content="洛谷, Luogu, 用户卡片, 生成器, 洛谷数据, 咕值, 练习情况, 成就卡片, Luogu User Card, 洛谷卡片生成器">
+    <meta name="description" content="使用洛谷用户卡片生成器，轻松动态生成并自定义您的洛谷基本信息、练习情况、咕值等多种样式的成就卡片。支持深色模式、自定义宽度，可嵌入博客、GitHub等。">
+    
     <script defer src="https://umami.jerryz.com.cn/script.js" data-website-id="53c03091-344a-406b-9323-36ca8c258054"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2597042766299857"
         crossorigin="anonymous"></script>
-    <!-- Modern frameworks: Vue 3 + Element Plus -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/index.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/index.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/locale/zh-cn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "洛谷用户卡片生成器",
+      "description": "使用洛谷用户卡片生成器，轻松动态生成并自定义您的洛谷基本信息、练习情况、咕值等多种样式的成就卡片。支持深色模式、自定义宽度，可嵌入博客、GitHub等。",
+      "applicationCategory": "Utilities",
+      "operatingSystem": "All",
+      "url": "https://api.jerryz.com.cn/", 
+      "offers": {
+        "@type": "Offer",
+        "price": "0" 
+      },
+      "creator": {
+        "@type": "Person", 
+        "name": "YangguangZhou" 
+      }
+    }
+    </script>
+
     <style>
         /* Global Styles */
         :root {
@@ -425,7 +446,7 @@
 
                 <div class="example-cards">
                     <div class="example-card" @click="selectCardType('practice')">
-                        <img src="https://api.jerryz.com.cn/practice?id=253620" alt="练习情况示例">
+                        <img src="https://api.jerryz.com.cn/practice?id=253620" alt="练习情况卡片示例">
                         <h3>练习情况</h3>
                         <p>详细展示用户的做题情况</p>
                     </div>
@@ -435,7 +456,7 @@
                         <p>显示用户类型、关注、咕值排名、个性签名</p>
                     </div>
                     <div class="example-card" @click="selectCardType('guzhi')">
-                        <img src="https://api.jerryz.com.cn/guzhi?id=253620&scores=100,14,0,4,20" alt="咕值信息示例">
+                        <img src="https://api.jerryz.com.cn/guzhi?id=253620&scores=100,14,0,4,20" alt="咕值信息卡片示例">
                         <h3>咕值信息</h3>
                         <p>展示用户的咕值详情</p>
                     </div>
@@ -450,7 +471,7 @@
 
         <section class="image-section">
             <div class="image-container">
-                <el-image class="preview-image" :src="previewUrl" @click="openImage" fit="cover">
+                <el-image class="preview-image" :src="previewUrl" :alt="userId + '的洛谷' + cardType + '卡片预览'" @click="openImage" fit="cover">
                     <template #placeholder>
                         <div style="display: flex; justify-content: center; align-items: center; height: 300px; background-color: #f5f7fa;">
                             <el-icon style="font-size: 30px;"><i class="el-icon-loading"></i></el-icon>
@@ -484,7 +505,6 @@
                         <el-input v-model="userId" placeholder="输入洛谷用户ID" @input="updatePreview"></el-input>
                     </div>
 
-                    <!-- 咕值信息特有的输入框 - 拆分成五个独立输入框 -->
                     <template v-if="cardType === 'guzhi'">
                         <div class="form-group">
                             <label>基础信用</label>
@@ -574,9 +594,9 @@
             </div>
 
             <div class="copyright">
-                <p>Luogu-User-Card 项目由 <a href="https://github.com/YangguangZhou" target="_blank">YangguangZhou</a> 开发</p>
-                <p>API 服务：<a href="https://api.jerryz.com.cn/" target="_blank">https://api.jerryz.com.cn/</a></p>
-                <p>查看更多信息请访问 <a href="https://github.com/YangguangZhou/Luogu-User-Card" target="_blank">GitHub 项目页面</a></p>
+                <p>Luogu-User-Card 项目由 <a href="https://jerryz.com.cn" target="_blank">Jerry Zhou</a> 开发</p>
+                <p>API 服务：<a href="https://api.jerryz.com.cn/" target="_blank" >https://api.jerryz.com.cn/</a></p>
+                <p>查看更多信息请访问 <a href="https://blog.jerryz.com.cn/article/Luogu-User-Card/" target="_blank">博客</a> 和 <a href="https://github.com/YangguangZhou/Luogu-User-Card" target="_blank" rel="noopener noreferrer">GitHub 项目页面</a></p>
             </div>
         </footer>
     </div>
