@@ -9,16 +9,19 @@
     <link rel="icon" href="/favicon.png" type="image/png">
     <meta name="Keywords" content="洛谷, Luogu, 用户卡片, 生成器, 洛谷数据, 咕值, 练习情况, 成就卡片, Luogu User Card, 洛谷卡片生成器">
     <meta name="description" content="使用洛谷用户卡片生成器，轻松动态生成并自定义您的洛谷基本信息、练习情况、咕值等多种样式的成就卡片。支持深色模式、自定义宽度，可嵌入博客、GitHub等。">
-    
-    <script defer src="https://umami.jerryz.com.cn/script.js" data-website-id="53c03091-344a-406b-9323-36ca8c258054"></script>
+
+    <script defer src="https://umami.jerryz.com.cn/script.js"
+        data-website-id="53c03091-344a-406b-9323-36ca8c258054"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2597042766299857"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/index.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/index.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/locale/zh-cn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -66,14 +69,15 @@
             --spacing-2xl: 2.5rem;
             --el-component-size: 36px;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body, html {
+
+        body,
+        html {
             font-family: 'Nunito', 'Noto Serif SC', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
@@ -83,28 +87,28 @@
             width: 100%;
             overflow-x: hidden;
         }
-        
+
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
-        
+
         ::-webkit-scrollbar-thumb {
             background-color: var(--primary-light);
             border-radius: var(--radius-sm);
         }
-        
+
         ::-webkit-scrollbar-track {
             background-color: var(--bg-primary);
         }
-        
+
         /* App Container */
         #app {
             max-width: 1200px;
             margin: 0 auto;
             padding: var(--spacing-lg);
         }
-        
+
         /* Cards & Sections */
         .card {
             background-color: var(--bg-secondary);
@@ -114,16 +118,16 @@
             margin-bottom: var(--spacing-lg);
             transition: var(--transition);
         }
-        
+
         .card:hover {
             box-shadow: var(--shadow-lg);
             transform: translateY(-2px);
         }
-        
+
         section {
             margin-bottom: var(--spacing-lg);
         }
-        
+
         /* Typography */
         .title {
             font-family: 'Nunito', 'Noto Serif SC', sans-serif;
@@ -134,7 +138,7 @@
             font-weight: 700;
             letter-spacing: 0.01em;
         }
-        
+
         .description {
             text-align: center;
             color: var(--text-secondary);
@@ -143,7 +147,7 @@
             margin: 0 auto var(--spacing-lg);
             line-height: 1.5;
         }
-        
+
         .section-title {
             font-size: 1.25rem;
             margin-bottom: var(--spacing-md);
@@ -153,7 +157,7 @@
             align-items: center;
             gap: var(--spacing-sm);
         }
-        
+
         .section-title::before {
             content: "";
             display: block;
@@ -162,45 +166,47 @@
             background-color: var(--primary-color);
             border-radius: var(--radius-sm);
         }
-        
+
         /* Preview Image */
         .image-section {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        
+
         .image-container {
             width: 100%;
             max-width: 700px;
             margin: var(--spacing-md) 0;
             position: relative;
             overflow: hidden;
-            line-height: 0; /* Fix white space issue */
+            line-height: 0;
+            /* Fix white space issue */
             background-color: transparent;
         }
-        
+
         .preview-image {
             width: 100%;
             height: auto;
             object-fit: contain;
             transition: var(--transition);
             cursor: pointer;
-            display: block; /* Fix white space issue */
+            display: block;
+            /* Fix white space issue */
             background-color: transparent;
         }
-        
+
         .preview-image:hover {
             transform: scale(1.02);
         }
-        
+
         /* Image Link */
         .image-link-container {
             width: 100%;
             max-width: 700px;
             margin: var(--spacing-md) auto;
         }
-        
+
         .image-link {
             padding: var(--spacing-md);
             border-radius: var(--radius-md);
@@ -216,23 +222,23 @@
             display: block;
             width: 100%;
         }
-        
+
         .image-link:hover {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
         }
-        
+
         /* Form Elements */
         .form-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-md);
         }
-        
+
         .form-group {
             margin-bottom: var(--spacing-md);
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: var(--spacing-xs);
@@ -298,7 +304,7 @@
             color: #334155;
             border-left: 4px solid var(--primary-color);
         }
-        
+
         /* Footer */
         .footer {
             margin-top: var(--spacing-2xl);
@@ -306,86 +312,104 @@
             border-top: 1px solid var(--border-color);
             text-align: center;
         }
-        
-        .help-text, .counter, .copyright {
+
+        .help-text,
+        .counter,
+        .copyright {
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.6;
             margin-bottom: var(--spacing-md);
         }
-        
+
         .copyright a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
         }
-        
+
         .copyright a:hover {
             color: var(--primary-dark);
             text-decoration: underline;
         }
-        
+
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(3px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(3px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         @keyframes fadeOut {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(3px); }
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(3px);
+            }
         }
-        
+
         .fade-in {
             animation: fadeIn 0.2s ease forwards;
         }
-        
+
         .fade-out {
             animation: fadeOut 0.2s ease forwards;
         }
-        
+
         /* Customize Element Plus */
         .el-button {
             border-radius: var(--radius-md);
             font-weight: 600;
             transition: var(--transition);
         }
-        
+
         .el-button--primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
         }
-        
-        .el-button--primary:hover, .el-button--primary:focus {
+
+        .el-button--primary:hover,
+        .el-button--primary:focus {
             background-color: var(--primary-dark);
             border-color: var(--primary-dark);
         }
-        
-        .el-input__inner, .el-input__wrapper {
+
+        .el-input__inner,
+        .el-input__wrapper {
             border-radius: var(--radius-md) !important;
         }
-        
+
         .el-radio-button__inner {
             border-radius: 0;
         }
-        
+
         .el-radio-group .el-radio-button:first-child .el-radio-button__inner {
             border-top-left-radius: var(--radius-md);
             border-bottom-left-radius: var(--radius-md);
         }
-        
+
         .el-radio-group .el-radio-button:last-child .el-radio-button__inner {
             border-top-right-radius: var(--radius-md);
             border-bottom-right-radius: var(--radius-md);
         }
-        
+
         /* Width Slider Improvements */
         .width-slider-container {
             margin-top: var(--spacing-sm);
             padding: 0 var(--spacing-xs);
         }
-        
+
         .width-value-display {
             text-align: center;
             margin-bottom: var(--spacing-sm);
@@ -393,7 +417,7 @@
             color: var(--primary-color);
             font-size: 1.1rem;
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             :root {
@@ -401,15 +425,15 @@
                 --spacing-xl: 1.5rem;
                 --spacing-2xl: 2rem;
             }
-            
+
             #app {
                 padding: var(--spacing-md);
             }
-            
+
             .title {
                 font-size: 2rem;
             }
-            
+
             .card {
                 padding: var(--spacing-md);
             }
@@ -418,7 +442,7 @@
                 grid-template-columns: 1fr;
             }
         }
-        
+
         @media (max-width: 480px) {
             .title {
                 font-size: 1.75rem;
@@ -471,9 +495,11 @@
 
         <section class="image-section">
             <div class="image-container">
-                <el-image class="preview-image" :src="previewUrl" :alt="userId + '的洛谷' + cardType + '卡片预览'" @click="openImage" fit="cover">
+                <el-image class="preview-image" :src="previewUrl" :alt="userId + '的洛谷' + cardType + '卡片预览'"
+                    @click="openImage" fit="cover">
                     <template #placeholder>
-                        <div style="display: flex; justify-content: center; align-items: center; height: 300px; background-color: #f5f7fa;">
+                        <div
+                            style="display: flex; justify-content: center; align-items: center; height: 300px; background-color: #f5f7fa;">
                             <el-icon style="font-size: 30px;"><i class="el-icon-loading"></i></el-icon>
                         </div>
                     </template>
@@ -508,23 +534,28 @@
                     <template v-if="cardType === 'guzhi'">
                         <div class="form-group">
                             <label>基础信用</label>
-                            <el-input-number v-model="guzhiScore1" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                            <el-input-number v-model="guzhiScore1" :min="0" :max="100"
+                                @change="updateGuzhiScores"></el-input-number>
                         </div>
                         <div class="form-group">
                             <label>练习情况</label>
-                            <el-input-number v-model="guzhiScore2" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                            <el-input-number v-model="guzhiScore2" :min="0" :max="100"
+                                @change="updateGuzhiScores"></el-input-number>
                         </div>
                         <div class="form-group">
                             <label>社区贡献</label>
-                            <el-input-number v-model="guzhiScore3" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                            <el-input-number v-model="guzhiScore3" :min="0" :max="100"
+                                @change="updateGuzhiScores"></el-input-number>
                         </div>
                         <div class="form-group">
                             <label>比赛情况</label>
-                            <el-input-number v-model="guzhiScore4" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                            <el-input-number v-model="guzhiScore4" :min="0" :max="100"
+                                @change="updateGuzhiScores"></el-input-number>
                         </div>
                         <div class="form-group">
                             <label>获得成就</label>
-                            <el-input-number v-model="guzhiScore5" :min="0" :max="100" @change="updateGuzhiScores"></el-input-number>
+                            <el-input-number v-model="guzhiScore5" :min="0" :max="100"
+                                @change="updateGuzhiScores"></el-input-number>
                         </div>
                     </template>
                 </div>
@@ -544,7 +575,7 @@
                         <label>黑暗模式</label>
                         <el-switch v-model="darkMode" @change="updatePreview"></el-switch>
                     </div>
-    
+
                     <div class="form-group">
                         <label>禁用缓存</label>
                         <el-switch v-model="disableCache" @change="updatePreview"></el-switch>
@@ -554,13 +585,8 @@
                         <label>自定义宽度</label>
                         <div class="width-value-display">{{ cardWidth }}px</div>
                         <div class="width-slider-container">
-                            <el-slider 
-                                v-model="cardWidth" 
-                                :min="500" 
-                                :max="1920" 
-                                :step="10"
-                                :format-tooltip="value => `${value}px`"
-                                @change="updatePreview">
+                            <el-slider v-model="cardWidth" :min="500" :max="1920" :step="10"
+                                :format-tooltip="value => `${value}px`" @change="updatePreview">
                             </el-slider>
                         </div>
                     </div>
@@ -576,11 +602,12 @@
                 <div class="code-block">![洛谷用户卡片]({{ previewUrl }})</div>
                 <p>如果需要添加点击跳转，可以使用以下格式：</p>
                 <div class="code-block">[![洛谷用户卡片]({{ previewUrl }})](https://www.luogu.com.cn/user/{{ userId }})</div>
-                
+
                 <div style="margin-top: var(--spacing-lg);">
                     <h3 style="margin-bottom: var(--spacing-sm);">注意事项：</h3>
                     <ul style="list-style-position: inside; padding-left: var(--spacing-md);">
-                        <li>为了不滥用洛谷服务器流量，本项目利用 vercel 的边缘缓存功能缓存了 12 小时数据，即同一个用户卡片 <strong>24 小时内最多只会向洛谷服务器请求 2 次数据</strong>，并且只有在用户访问卡片时才会请求数据。</li>
+                        <li>为了不滥用洛谷服务器流量，本项目利用 vercel 的边缘缓存功能缓存了 12 小时数据，即同一个用户卡片 <strong>24 小时内最多只会向洛谷服务器请求 2
+                                次数据</strong>，并且只有在用户访问卡片时才会请求数据。</li>
                         <li>开启"完全隐私保护"的用户可能无法正常获取数据。</li>
                         <li>咕值信息卡片需要手动输入咕值数据，或者依赖于咕值排名在1000名以内自动获取。</li>
                     </ul>
@@ -595,15 +622,17 @@
 
             <div class="copyright">
                 <p>Luogu-User-Card 项目由 <a href="https://jerryz.com.cn" target="_blank">Jerry Zhou</a> 开发</p>
-                <p>API 服务：<a href="https://api.jerryz.com.cn/" target="_blank" >https://api.jerryz.com.cn/</a></p>
-                <p>查看更多信息请访问 <a href="https://blog.jerryz.com.cn/article/Luogu-User-Card/" target="_blank">博客</a> 和 <a href="https://github.com/YangguangZhou/Luogu-User-Card" target="_blank" rel="noopener noreferrer">GitHub 项目页面</a></p>
+                <p>API 服务：<a href="https://api.jerryz.com.cn/" target="_blank">https://api.jerryz.com.cn/</a></p>
+                <p>查看更多信息请访问 <a href="https://blog.jerryz.com.cn/article/Luogu-User-Card/" target="_blank">博客</a> 和 <a
+                        href="https://github.com/YangguangZhou/Luogu-User-Card" target="_blank"
+                        rel="noopener noreferrer">GitHub 项目页面</a></p>
             </div>
         </footer>
     </div>
 
     <script>
         const { createApp, ref, computed, watch } = Vue;
-        
+
         const app = createApp({
             setup() {
                 // 基本数据
@@ -622,74 +651,74 @@
                 const guzhiScores = computed(() => {
                     return `${guzhiScore1.value},${guzhiScore2.value},${guzhiScore3.value},${guzhiScore4.value},${guzhiScore5.value}`;
                 });
-                
+
                 const baseURL = "https://api.jerryz.com.cn/";
                 const linkText = ref(null);
                 const markdownText = ref(null);
-                
+
                 // 计算预览URL
                 const previewUrl = computed(() => {
                     let url = `${baseURL}${cardType.value}?id=${userId.value}`;
-                    
+
                     // 如果是咕值卡片，添加scores参数
                     if (cardType.value === 'guzhi' && guzhiScores.value) {
                         url += `&scores=${guzhiScores.value}`;
                     }
-                    
+
                     // 添加自定义选项
                     if (hideTitle.value) {
                         url += '&hide_title=true';
                     }
-                    
+
                     if (darkMode.value) {
                         url += '&dark_mode=true';
                     }
-                    
+
                     // 只有在非练习徽章类型时添加宽度参数
                     if (cardWidth.value !== 500 && cardType.value !== 'shield') {
                         url += `&card_width=${cardWidth.value}`;
                     }
-                    
+
                     if (disableCache.value) {
                         url += '&disable_cache=true';
                     }
-                    
+
                     return url;
                 });
-                
+
                 // 计算Markdown代码
                 const markdownCode = computed(() => {
                     return `![${userId.value}的洛谷用户卡片](${previewUrl.value})`;
                 });
-                
+
                 // 方法
                 const updatePreview = () => {
                     // 预览URL会自动更新，因为它是一个计算属性
                 };
-                
+
                 const selectCardType = (type) => {
                     cardType.value = type;
                     updatePreview();
                 };
-                
+
                 const openImage = () => {
                     window.open(previewUrl.value, "_blank");
                 };
-                
+
                 const fadeIn = (element) => {
                     element.classList.add('fade-in');
                     setTimeout(() => {
                         element.classList.remove('fade-in');
                     }, 200);
                 };
-                
+
                 const fadeOut = (element) => {
                     element.classList.add('fade-out');
                     setTimeout(() => {
                         element.classList.remove('fade-out');
                     }, 200);
                 };
-                
+
                 const copyToClipboard = () => {
                     if (linkText.value) {
                         navigator.clipboard.writeText(previewUrl.value).then(() => {
@@ -712,7 +741,7 @@
                         });
                     }
                 };
-                
+
                 const copyMarkdownCode = () => {
                     if (markdownText.value) {
                         navigator.clipboard.writeText(markdownCode.value).then(() => {
@@ -723,7 +752,7 @@
                         });
                     }
                 };
-                
+
                 // 更新咕值得分，当单个得分改变时调用
                 const updateGuzhiScores = () => {
                     // 由于 guzhiScores 是计算属性，它会自动更新
@@ -765,12 +794,12 @@
                 };
             }
         });
-        
+
         // 使用Element Plus，并设置中文
         app.use(ElementPlus, {
             locale: ElementPlus.zhCn
         });
-        
+
         // 挂载应用
         app.mount('#app');
     </script>
