@@ -23,31 +23,41 @@ async function fetchStats(id) {
         ccfLevel: 0,
         passed: [0, 0, 0, 0, 0, 0, 0, 0],
         unpassed: 0,
-        hideInfo: false
+        hideInfo: false,
+        errorType: null // "privacy" | "error"
     }
-    if (res.data.code !== 200) {
+    try {
+        if (!res.data || res.data.code !== 200 || !res.data.currentData) {
+            stats.hideInfo = true;
+            stats.errorType = "error";
+            return stats;
+        }
+        const user = res.data.currentData.user;
+        const passed = res.data.currentData.passedProblems;
+        const submittedProblems = res.data.currentData.submittedProblems;
+
+        stats.name = user && user.name ? decodeURI(user.name) : "NULL";
+        stats.color = user && user.color ? user.color : "Gray";
+        stats.ccfLevel = user && user.ccfLevel ? user.ccfLevel : 0;
+        stats.tag = user && user.badge ? decodeURI(user.badge) : "";
+        stats.unpassed = Array.isArray(submittedProblems) ? submittedProblems.length : 0;
+
+        if (!Array.isArray(passed)) {
+            stats.hideInfo = true;
+            stats.errorType = "privacy";
+            return stats;
+        }
+        for (let i of passed) {
+            if (typeof i.difficulty === "number" && i.difficulty >= 0 && i.difficulty < stats.passed.length) {
+                stats.passed[i.difficulty]++;
+            }
+        }
         return stats;
-    }
-
-    const user = res.data.currentData.user;
-    const passed = res.data.currentData.passedProblems;
-
-    stats.name = decodeURI(user.name);
-    stats.color = user.color;
-    stats.ccfLevel = user.ccfLevel;
-    stats.tag = decodeURI(user.badge);
-    stats.unpassed = res.data.currentData.submittedProblems.length;
-
-    if (!passed) {
+    } catch (e) {
         stats.hideInfo = true;
+        stats.errorType = "error";
         return stats;
     }
-
-    for (let i of passed) {
-        stats.passed[i.difficulty]++;
-    }
-
-    return stats;
 }
 
 const renderSVG = (stats, options) => {
@@ -58,7 +68,8 @@ const renderSVG = (stats, options) => {
         passed,
         unpassed,
         hideInfo,
-        tag
+        tag,
+        errorType
     } = stats;
 
     const {
@@ -68,7 +79,11 @@ const renderSVG = (stats, options) => {
     } = options || {};
 
     if (hideInfo) {
-        return renderError("用户开启了“完全隐私保护”，获取数据失败", options = { width: 360 });
+        if (errorType === "privacy") {
+            return renderError("用户开启了“完全隐私保护”，无法获取练习数据。", { ...options, width: 360 });
+        } else {
+            return renderError("数据获取异常，请稍后重试。", { ...options, width: 360 });
+        }
     }
 
     const paddingX = 25;
