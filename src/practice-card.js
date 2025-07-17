@@ -81,7 +81,7 @@ const renderSVG = (stats, options) => {
     if (hideInfo) {
         let msg = "";
         if (errorType === "privacy") {
-            msg = "用户开启了“完全隐私保护”，无法获取练习数据。";
+            msg = "无法获取练习数据。";
         } else {
             msg = "数据获取异常，请稍后重试。";
         }

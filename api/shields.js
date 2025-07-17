@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
   const stats = await fetchStats(id);
   if (stats.hideInfo) {
     if (stats.errorType === "privacy") {
-      return res.send(renderError("用户开启了“完全隐私保护”，无法获取练习数据。", { width: 360 }));
+      return res.send(renderError("无法获取练习数据。", { width: 360 }));
     } else {
       return res.send(renderError("数据获取异常，请稍后重试。", { width: 360 }));
     }
