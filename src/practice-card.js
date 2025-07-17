@@ -79,11 +79,13 @@ const renderSVG = (stats, options) => {
     } = options || {};
 
     if (hideInfo) {
+        let msg = "";
         if (errorType === "privacy") {
-            return renderError("用户开启了“完全隐私保护”，无法获取练习数据。", { ...options, width: 360 });
+            msg = "用户开启了“完全隐私保护”，无法获取练习数据。";
         } else {
-            return renderError("数据获取异常，请稍后重试。", { ...options, width: 360 });
+            msg = "数据获取异常，请稍后重试。";
         }
+        return renderError(msg, { width: 360 });
     }
 
     const paddingX = 25;
