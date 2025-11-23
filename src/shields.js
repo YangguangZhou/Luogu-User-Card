@@ -43,33 +43,32 @@ const renderSVG = (stats, options) => {
 		{ label: "尝试过的题目", color: "#0101DF", data: passed[8] }
 	];
 
-	let nameLength = anafanafo(name) * 0.11, onameLength = nameLength;
+	let nameLength = anafanafo(name) * 0.14 + 5, onameLength = nameLength;
 
 	let ccf = "";
 
-	if (ccfLevel >= 3) ccf = renderCCFBadge(ccfLevel, nameLength + 6), nameLength += 18;
+	if (ccfLevel >= 3) ccf = renderCCFBadge(ccfLevel, nameLength + 6), nameLength += 22;
 
-	let p1 = "", p2 = "", s1 = nameLength + 6, s2 = nameLength + 9;
+	let p1 = "", p2 = "", s1 = nameLength + 8;
 
 	for (let i = 0; i <= 8; ++i) {
-		const nameL = anafanafo(passed[i].toString()) * 0.11;
-		p1 += `<rect x="${s1}" width="${nameL + 6}" height="19" fill="${datas[i].color}"/>`;
-		s1 += nameL + 6;
-	}
-	for (let i = 0; i <= 8; ++i) {
-		const nameL = anafanafo(passed[i].toString()) * 0.11;
-		p2 += `<text x="${s2}" y="14" fill="#fff" textLength="${nameL}">${passed[i]}</text>`;
-		s2 += nameL + 6;
+		const str = passed[i].toString();
+		const textW = anafanafo(str) * 0.14;
+		const boxW = Math.max(textW + 12, 20);
+
+		p1 += `<rect x="${s1}" width="${boxW}" height="19" fill="${datas[i].color}"/>`;
+		p2 += `<text x="${s1 + boxW / 2}" y="14" fill="#fff" text-anchor="middle">${str}</text>`;
+		s1 += boxW;
 	}
 
-	return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${s2}" height="19" role="img">
+	return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${s1}" height="19" role="img">
       <title>${name}</title>
 	  <link type="favicon" rel="shortcut icon" href="/favicon.png" />
       <g>
         <rect width="${nameLength + 6}" height="19" fill="none"/>
         ${p1}
       </g>
-      <g fill="none" text-rendering="geometricPrecision" font-size="15" font-family="Segoe UI">
+      <g fill="none" text-rendering="geometricPrecision" font-size="14" font-family="Segoe UI">
         <text x="3" y="14" fill="${NAMECOLOR[color]}" textLength="${onameLength}" font-weight="bold">${name}</text>
         ${ccf}
         ${p2}
