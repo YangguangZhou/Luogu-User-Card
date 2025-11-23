@@ -23,6 +23,7 @@ class Card {
         paddingX = 25,
         paddingY = 35,
         hideBorder = false,
+        customFooter = null,
     }) {
         this.width = width;
         this.height = height;
@@ -35,12 +36,15 @@ class Card {
         this.paddingX = paddingX;
         this.paddingY = paddingY;
         this.hideBorder = hideBorder;
+        this.customFooter = customFooter;
     }
 
     render() {
         var d = new Date();
         var beijingTime = new Date(d.getTime() + (parseInt(d.getTimezoneOffset() / 60) + 8) * 3600 * 1000);
         var timeStr = `${beijingTime.getFullYear()}-${(beijingTime.getMonth() + 1) < 10 ? "0" : ""}${beijingTime.getMonth() + 1}-${beijingTime.getDate() < 10 ? "0" : ""}${beijingTime.getDate()} ${beijingTime.getHours() < 10 ? "0" : ""}${beijingTime.getHours()}:${beijingTime.getMinutes() < 10 ? "0" : ""}${beijingTime.getMinutes()}:${beijingTime.getSeconds() < 10 ? "0" : ""}${beijingTime.getSeconds()}`
+        
+        const footerText = this.customFooter ? this.customFooter : `卡片生成时间：${timeStr}`;
 
         const cardSize = {
             width: this.width + 2 * this.paddingX,
@@ -73,7 +77,7 @@ class Card {
                 <g transform="translate(${this.paddingX}, ${this.hideTitle ? this.paddingY : this.paddingY + this.titleHeight})">
                     ${this.body}
                 </g>
-                <g transform="translate(${this.paddingX}, ${cardSize.height - this.paddingY})"><text x="0" y="15" class="about-text-grey">卡片生成时间：${timeStr}</text></g>
+                <g transform="translate(${this.paddingX}, ${cardSize.height - this.paddingY})"><text x="0" y="15" class="about-text-grey">${footerText}</text></g>
             </svg>`;
     }
 }
@@ -97,11 +101,12 @@ function escapeSvgText(text) {
  * @param {Object} option 其余选项
  */
 const renderError = (e, option) => {
-    const css = `.t {font: 600 18px 'Microsoft Yahei UI'; fill: #e74c3c;}`
-    const text = `<text class="t" dominant-baseline="text-before-edge">${e}</text>`
+    const css = `.t {font: 600 18px 'Microsoft Yahei UI'; fill: #e74c3c;} .sub {font: 400 13px 'Microsoft Yahei UI'; fill: #888;}`
+    const text = `<text class="t" dominant-baseline="text-before-edge">${e}</text>
+                  <text x="0" y="25" class="sub" dominant-baseline="text-before-edge">如果数据获取异常，请稍后重试，或使用自定义模式。</text>`
     return new Card({
         width: 300,
-        height: 23,
+        height: 50,
         hideTitle: true,
         css,
         body: text,

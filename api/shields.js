@@ -3,7 +3,7 @@ const { renderSVG } = require("../src/shields.js");
 const { renderError } = require("../src/common.js");
 
 module.exports = async (req, res) => {
-  const { id } = req.query;
+  const { id, custom, name, color, ccfLevel, passed, unpassed } = req.query;
 
   res.setHeader("Content-Type", "image/svg+xml");
   res.setHeader("Cache-Control", "public, max-age=43200"); // 43200s（12h） cache
@@ -14,7 +14,28 @@ module.exports = async (req, res) => {
     return res.send(renderError(`"${id}"不是一个合法uid`));
   }
 
-  const stats = await fetchStats(id);
+  let stats;
+  if (custom) {
+    let passedArr = [0, 0, 0, 0, 0, 0, 0, 0];
+    if (passed) {
+        const parts = passed.split(',');
+        if (parts.length === 8) {
+            passedArr = parts.map(x => parseInt(x) || 0);
+        }
+    }
+    stats = {
+        name: decodeURI(name || "NULL"),
+        color: decodeURI(color || "Gray"),
+        ccfLevel: parseInt(ccfLevel || 0),
+        passed: passedArr,
+        unpassed: parseInt(unpassed || 0),
+        hideInfo: false,
+        errorType: null
+    };
+  } else {
+    stats = await fetchStats(id);
+  }
+
   if (stats.hideInfo) {
     if (stats.errorType === "privacy") {
       return res.send(renderError("无法获取练习数据。", { width: 360 }));

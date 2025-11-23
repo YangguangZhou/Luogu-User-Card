@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/index.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/index.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/element-plus/2.3.8/locale/zh-cn.min.js"></script>
+    <script src="https://unpkg.com/element-plus@2.3.8/dist/locale/zh-cn.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Serif+SC:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap"
         rel="stylesheet">
@@ -385,7 +385,6 @@
             border-color: var(--primary-dark);
         }
 
-        .el-input__inner,
         .el-input__wrapper {
             border-radius: var(--radius-md) !important;
         }
@@ -567,6 +566,87 @@
             <div class="card">
                 <div class="form-container">
                     <div class="form-group">
+                        <label>开启自定义模式</label>
+                        <el-switch v-model="customMode" @change="updatePreview"></el-switch>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 5px;">
+                            开启后，您可以手动输入所有数据，不再依赖洛谷 API。适用于 API 故障或需要生成特定数据的情况。
+                        </div>
+                    </div>
+
+                    <template v-if="customMode">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <el-input v-model="customName" @input="updatePreview"></el-input>
+                        </div>
+                        <div class="form-group">
+                            <label>颜色</label>
+                            <el-select v-model="customColor" @change="updatePreview">
+                                <el-option label="Gray" value="Gray"></el-option>
+                                <el-option label="Blue" value="Blue"></el-option>
+                                <el-option label="Green" value="Green"></el-option>
+                                <el-option label="Orange" value="Orange"></el-option>
+                                <el-option label="Red" value="Red"></el-option>
+                                <el-option label="Purple" value="Purple"></el-option>
+                                <el-option label="Cheater" value="Cheater"></el-option>
+                            </el-select>
+                        </div>
+                        <div class="form-group">
+                            <label>CCF等级 (0-10)</label>
+                            <el-input-number v-model="customCCFLevel" :min="0" :max="10" @change="updatePreview"></el-input-number>
+                        </div>
+                        <div class="form-group">
+                            <label>标签/徽章</label>
+                            <el-input v-model="customTag" @input="updatePreview"></el-input>
+                        </div>
+
+                        <template v-if="cardType === 'about'">
+                            <div class="form-group">
+                                <label>个性签名</label>
+                                <el-input v-model="customSlogan" @input="updatePreview"></el-input>
+                            </div>
+                            <div class="form-group">
+                                <label>用户类型</label>
+                                <el-input v-model="customUserType" @input="updatePreview"></el-input>
+                            </div>
+                            <div class="form-group">
+                                <label>关注数</label>
+                                <el-input-number v-model="customFollowingCount" :min="0" @change="updatePreview"></el-input-number>
+                            </div>
+                            <div class="form-group">
+                                <label>粉丝数</label>
+                                <el-input-number v-model="customFollowerCount" :min="0" @change="updatePreview"></el-input-number>
+                            </div>
+                            <div class="form-group">
+                                <label>排名</label>
+                                <el-input-number v-model="customRanking" :min="0" @change="updatePreview"></el-input-number>
+                            </div>
+                        </template>
+
+                        <template v-if="cardType === 'guzhi'">
+                            <div class="form-group">
+                                <label>排名</label>
+                                <el-input-number v-model="customRanking" :min="0" @change="updatePreview"></el-input-number>
+                            </div>
+                        </template>
+
+                        <template v-if="cardType === 'practice' || cardType === 'shield'">
+                            <div class="form-group">
+                                <label>未通过数</label>
+                                <el-input-number v-model="customUnpassed" :min="0" @change="updatePreview"></el-input-number>
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label>各难度通过数</label>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px;">
+                                    <div v-for="(name, index) in difficultyNames" :key="index" style="text-align: center;">
+                                        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px;">{{ name }}</div>
+                                        <el-input-number v-model="customPassed[index]" :min="0" @change="updatePreview" style="width: 100%;" :controls="false"></el-input-number>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+
+                    <div class="form-group">
                         <label>隐藏标题</label>
                         <el-switch v-model="hideTitle" @change="updatePreview"></el-switch>
                     </div>
@@ -576,7 +656,7 @@
                         <el-switch v-model="darkMode" @change="updatePreview"></el-switch>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" v-if="!customMode">
                         <label>禁用缓存</label>
                         <el-switch v-model="disableCache" @change="updatePreview"></el-switch>
                     </div>
@@ -621,9 +701,9 @@
             </div>
 
             <div class="copyright">
-                <p>Luogu-User-Card 项目由 <a href="https://jerryz.com.cn" target="_blank">Jerry Zhou</a> 开发</p>
-                <p>API 服务：<a href="https://api.jerryz.com.cn/" target="_blank">https://api.jerryz.com.cn/</a></p>
-                <p>查看更多信息请访问 <a href="https://blog.jerryz.com.cn/article/Luogu-User-Card/" target="_blank">博客</a> 和 <a
+                <p>Luogu-User-Card 项目由 <a href="https://jerryz.com.cn" target="_blank" rel="noopener noreferrer">Jerry Zhou</a> 开发</p>
+                <p>API 服务：<a href="https://api.jerryz.com.cn/" target="_blank" rel="noopener noreferrer">https://api.jerryz.com.cn/</a></p>
+                <p>查看更多信息请访问 <a href="https://blog.jerryz.com.cn/article/Luogu-User-Card/" target="_blank" rel="noopener noreferrer">博客</a> 和 <a
                         href="https://github.com/YangguangZhou/Luogu-User-Card" target="_blank"
                         rel="noopener noreferrer">GitHub 项目页面</a></p>
             </div>
@@ -642,6 +722,22 @@
                 const darkMode = ref(false);
                 const cardWidth = ref(500);
                 const disableCache = ref(false);
+                
+                // 自定义模式数据
+                const customMode = ref(false);
+                const customName = ref('Jerry');
+                const customColor = ref('Green');
+                const customCCFLevel = ref(6);
+                const customTag = ref('');
+                const customSlogan = ref('这是一个自定义的个性签名');
+                const customFollowerCount = ref(100);
+                const customFollowingCount = ref(20);
+                const customRanking = ref(123);
+                const customUserType = ref('普通用户');
+                const customUnpassed = ref(50);
+                const customPassed = ref([10, 20, 30, 40, 50, 60, 70, 80]);
+                const difficultyNames = ["未评定", "入门", "普及-", "普及/提高-", "普及+/提高", "提高+/省选-", "省选/NOI-", "NOI/NOI+/CTSC"];
+
                 // 拆分咕值得分为5个单独的值
                 const guzhiScore1 = ref(100); // 基础信用
                 const guzhiScore2 = ref(14);  // 练习情况
@@ -681,6 +777,30 @@
 
                     if (disableCache.value) {
                         url += '&disable_cache=true';
+                    }
+
+                    if (customMode.value) {
+                        url += '&custom=true';
+                        url += `&name=${encodeURIComponent(customName.value)}`;
+                        url += `&color=${encodeURIComponent(customColor.value)}`;
+                        url += `&ccfLevel=${customCCFLevel.value}`;
+                        url += `&tag=${encodeURIComponent(customTag.value)}`;
+
+                        if (cardType.value === 'about') {
+                            url += `&slogan=${encodeURIComponent(customSlogan.value)}`;
+                            url += `&followerCount=${customFollowerCount.value}`;
+                            url += `&followingCount=${customFollowingCount.value}`;
+                            url += `&ranking=${customRanking.value}`;
+                            url += `&userType=${encodeURIComponent(customUserType.value)}`;
+                        } else if (cardType.value === 'practice') {
+                            url += `&passed=${customPassed.value.join(',')}`;
+                            url += `&unpassed=${customUnpassed.value}`;
+                        } else if (cardType.value === 'guzhi') {
+                            url += `&ranking=${customRanking.value}`;
+                        } else if (cardType.value === 'shield') {
+                            url += `&passed=${customPassed.value.join(',')}`;
+                            url += `&unpassed=${customUnpassed.value}`;
+                        }
                     }
 
                     return url;
@@ -790,7 +910,20 @@
                     openImage,
                     copyToClipboard,
                     copyMarkdownCode,
-                    updateGuzhiScores
+                    updateGuzhiScores,
+                    customMode,
+                    customName,
+                    customColor,
+                    customCCFLevel,
+                    customTag,
+                    customSlogan,
+                    customFollowerCount,
+                    customFollowingCount,
+                    customRanking,
+                    customUserType,
+                    customUnpassed,
+                    customPassed,
+                    difficultyNames
                 };
             }
         });

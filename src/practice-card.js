@@ -76,6 +76,7 @@ const renderSVG = (stats, options) => {
         hideTitle,
         darkMode,
         cardWidth = 500,
+        custom = false,
     } = options || {};
 
     if (hideInfo) {
@@ -115,6 +116,7 @@ const renderSVG = (stats, options) => {
         darkMode,
         title,
         body,
+        customFooter: custom ? "数据由用户自行填入，请注意鉴别" : null,
     }).render();
 }
 

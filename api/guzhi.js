@@ -26,7 +26,7 @@ async function fetchGuzhi(id, ranking) {
 }
 
 module.exports = async (req, res) => {
-    const { id, scores, hide_title, dark_mode, disable_cache, card_width = 500 } = req.query;
+    const { id, scores, hide_title, dark_mode, disable_cache, card_width = 500, custom, name, color, ccfLevel, ranking, tag } = req.query;
     var finally_scores
 
     res.setHeader("Content-Type", "image/svg+xml");
@@ -48,18 +48,29 @@ module.exports = async (req, res) => {
 
     let about = null;
 
-    if (id != undefined) {
-        about = await fetchAbout(id);
-    }
+    if (custom) {
+        about = {
+            name: decodeURI(name || "NULL"),
+            color: decodeURI(color || "Gray"),
+            ccfLevel: parseInt(ccfLevel || 0),
+            ranking: parseInt(ranking || -1),
+            tag: decodeURI(tag || "")
+        };
+        finally_scores = scores;
+    } else {
+        if (id != undefined) {
+            about = await fetchAbout(id);
+        }
 
-    if (about.ranking >= 1 && about.ranking <= 1000) {
-        finally_scores = await fetchGuzhi(id, about.ranking);
-        if (finally_scores == "Not found.") {
+        if (about.ranking >= 1 && about.ranking <= 1000) {
+            finally_scores = await fetchGuzhi(id, about.ranking);
+            if (finally_scores == "Not found.") {
+                finally_scores = scores;
+            }
+        }
+        else {
             finally_scores = scores;
         }
-    }
-    else {
-        finally_scores = scores;
     }
 
     return res.send(
@@ -67,6 +78,7 @@ module.exports = async (req, res) => {
             hideTitle: about === null ? true : hide_title,
             darkMode: dark_mode,
             cardWidth: clamp(500, 1920, card_width),
+            custom: custom === 'true' || custom === true
         })
     );
 };

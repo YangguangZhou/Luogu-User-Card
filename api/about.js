@@ -8,6 +8,16 @@ module.exports = async (req, res) => {
         dark_mode,
         disable_cache,
         card_width = 500,
+        custom,
+        name,
+        color,
+        ccfLevel,
+        slogan,
+        followerCount,
+        followingCount,
+        ranking,
+        userType,
+        tag
     } = req.query;
 
     res.setHeader("Content-Type", "image/svg+xml");
@@ -25,10 +35,27 @@ module.exports = async (req, res) => {
         return res.send(renderError(`卡片宽度"${card_width}"不合法`, { darkMode: dark_mode }));
     }
 
-    const about = await fetchAbout(id);
+    let about;
+    if (custom) {
+        about = {
+            name: decodeURI(name || "NULL"),
+            color: decodeURI(color || "Gray"),
+            ccfLevel: parseInt(ccfLevel || 0),
+            slogan: decodeURI(slogan || ""),
+            followerCount: parseInt(followerCount || 0),
+            followingCount: parseInt(followingCount || 0),
+            ranking: parseInt(ranking || -1),
+            userType: decodeURI(userType || "普通用户"),
+            tag: decodeURI(tag || "")
+        };
+    } else {
+        about = await fetchAbout(id);
+    }
+
     return res.send(renderSVG(about, {
         hideTitle: hide_title,
         darkMode: dark_mode,
         cardWidth: clamp(500, 1920, card_width),
+        custom: custom === 'true' || custom === true
     }));
 };

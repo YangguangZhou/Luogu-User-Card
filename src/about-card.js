@@ -64,6 +64,7 @@ const renderSVG = (about, options) => {
         hideTitle,
         darkMode,
         cardWidth = 500,
+        custom = false,
     } = options || {};
 
     const paddingX = 25;
@@ -77,6 +78,7 @@ const renderSVG = (about, options) => {
         darkMode,
         title,
         body,
+        customFooter: custom ? "数据由用户自行填入，请注意鉴别" : null,
     }).render();
 }
 
