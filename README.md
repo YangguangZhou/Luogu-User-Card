@@ -43,64 +43,64 @@ Luogu User Card 是一个动态生成洛谷用户信息卡片的工具，可以�
 
 展示用户的基本信息，包括用户类型、关注、咕值排名、个性签名等。
 
-![用户基本信息](https://api.jerryz.com.cn/about?id=253620)
+![用户基本信息](https://api.jerryz.com.cn/about?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&slogan=%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E4%B8%AA%E6%80%A7%E7%AD%BE%E5%90%8D&followerCount=56&followingCount=25&ranking=1234&userType=%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7)
 
 ```markdown
-![用户基本信息](https://api.jerryz.com.cn/about?id=253620)
+![用户基本信息](https://api.jerryz.com.cn/about?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&slogan=%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E4%B8%AA%E6%80%A7%E7%AD%BE%E5%90%8D&followerCount=56&followingCount=25&ranking=1234&userType=%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7)
 ```
 
 带链接版本：
 
 ```markdown
-[![用户基本信息](https://api.jerryz.com.cn/about?id=253620)](https://www.luogu.com.cn/user/253620)
+[![用户基本信息](https://api.jerryz.com.cn/about?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&slogan=%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E4%B8%AA%E6%80%A7%E7%AD%BE%E5%90%8D&followerCount=56&followingCount=25&ranking=1234&userType=%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7)](https://www.luogu.com.cn/user/253620)
 ```
 
 ### 练习徽章
 
 简洁地显示用户的做题统计数据，适合放在项目徽章列表中。
 
-![练习徽章](https://api.jerryz.com.cn/shield?id=253620)
+![练习徽章](https://api.jerryz.com.cn/shield?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5)
 
 ```markdown
-![练习徽章](https://api.jerryz.com.cn/shield?id=253620)
+![练习徽章](https://api.jerryz.com.cn/shield?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5)
 ```
 
 带链接版本：
 
 ```markdown
-[![练习徽章](https://api.jerryz.com.cn/shield?id=253620)](https://www.luogu.com.cn/user/253620#practice)
+[![练习徽章](https://api.jerryz.com.cn/shield?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5)](https://www.luogu.com.cn/user/253620#practice)
 ```
 
 ### 练习情况卡片
 
 详细展示用户的做题情况，包括已通过题目数量和各个难度的题目分布。
 
-![练习情况](https://api.jerryz.com.cn/practice?id=253620)
+![练习情况](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5)
 
 ```markdown
-![练习情况](https://api.jerryz.com.cn/practice?id=253620)
+![练习情况](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5)
 ```
 
 带链接版本：
 
 ```markdown
-[![练习情况](https://api.jerryz.com.cn/practice?id=253620)](https://www.luogu.com.cn/user/253620#practice)
+[![练习情况](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5)](https://www.luogu.com.cn/user/253620#practice)
 ```
 
 ### 咕值信息卡片
 
 展示用户的咕值数据，包括基础信用、练习情况、社区贡献、比赛情况、获得成就五个维度。
 
-![咕值信息](https://api.jerryz.com.cn/guzhi?id=253620&scores=100,14,0,4,20)
+![咕值信息](https://api.jerryz.com.cn/guzhi?id=123456&scores=100,25,10,40,20&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&ranking=1234)
 
 ```markdown
-![咕值信息](https://api.jerryz.com.cn/guzhi?id=253620&scores=100,14,0,4,20)
+![咕值信息](https://api.jerryz.com.cn/guzhi?id=123456&scores=100,25,10,40,20&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&ranking=1234)
 ```
 
 带链接版本：
 
 ```markdown
-[![咕值信息](https://api.jerryz.com.cn/guzhi?id=253620&scores=100,14,0,4,20)](https://www.luogu.com.cn/user/253620)
+[![咕值信息](https://api.jerryz.com.cn/guzhi?id=123456&scores=100,25,10,40,20&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&ranking=1234)](https://www.luogu.com.cn/user/253620)
 ```
 
 > **说明**：`scores` 参数需要手动填入五个数据，分别对应基础信用、练习情况、社区贡献、比赛情况、获得成就，用英文逗号分隔。当系统检测到用户咕值排名在前 1000 名时，会自动获取数据并覆盖手动输入的数据。
@@ -114,37 +114,37 @@ Luogu User Card 是一个动态生成洛谷用户信息卡片的工具，可以�
 添加 `&hide_title=true` 参数：
 
 ```markdown
-![练习情况](https://api.jerryz.com.cn/practice?id=253620&hide_title=true)
+![练习情况](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5&hide_title=true)
 ```
 
-![隐藏标题效果](https://api.jerryz.com.cn/practice?id=253620&hide_title=true)
+![隐藏标题效果](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5&hide_title=true)
 
 ### 深色模式
 
 添加 `&dark_mode=true` 参数：
 
 ```markdown
-![练习情况](https://api.jerryz.com.cn/practice?id=253620&dark_mode=true)
+![练习情况](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5&dark_mode=true)
 ```
 
-![深色模式效果](https://api.jerryz.com.cn/practice?id=253620&dark_mode=true)
+![深色模式效果](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5&dark_mode=true)
 
 ### 自定义宽度
 
 添加 `&card_width=数值` 参数（范围：500-1920）：
 
 ```markdown
-![练习情况](https://api.jerryz.com.cn/practice?id=253620&card_width=750)
+![练习情况](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5&card_width=750)
 ```
 
-![自定义宽度效果](https://api.jerryz.com.cn/practice?id=253620&card_width=750)
+![自定义宽度效果](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5&card_width=750)
 
 ### 禁用缓存
 
 添加 `&disable_cache=true` 参数：
 
 ```markdown
-![练习情况](https://api.jerryz.com.cn/practice?id=253620&disable_cache=true)
+![练习情况](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Orange&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5&disable_cache=true)
 ```
 
 ### 自定义模式
@@ -177,7 +177,7 @@ Luogu User Card 是一个动态生成洛谷用户信息卡片的工具，可以�
 **示例：**
 
 ```markdown
-![自定义练习情况](https://api.jerryz.com.cn/practice?id=253620&custom=true&name=Jerry&color=Green&passed=10,20,30,40,50,60,70,80&unpassed=50)
+![自定义练习情况](https://api.jerryz.com.cn/practice?id=123456&custom=true&name=%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7&color=Red&ccfLevel=6&tag=%E6%B5%8B%E8%AF%95&passed=5,50,55,75,90,60,20,10&unpassed=5)
 ```
 
 > **注意**：自定义模式生成的卡片底部将显示“数据由用户自行填入，请注意鉴别”，不再显示生成时间。
