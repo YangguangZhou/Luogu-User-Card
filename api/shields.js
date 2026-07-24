@@ -16,10 +16,10 @@ module.exports = async (req, res) => {
 
   let stats;
   if (custom) {
-    let passedArr = [0, 0, 0, 0, 0, 0, 0, 0];
+    let passedArr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     if (passed) {
         const parts = passed.split(',');
-        if (parts.length === 8) {
+        if (parts.length === 9) {
             passedArr = parts.map(x => parseInt(x) || 0);
         }
     }

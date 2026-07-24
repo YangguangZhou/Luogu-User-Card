@@ -26,21 +26,22 @@ const renderCCFBadge = (level, x) => {
 };
 const renderSVG = (stats, options) => {
 	const { name, color, ccfLevel, passed, unpassed, hideInfo, ranking } = stats;
-	passed[8] = unpassed
+	passed[9] = unpassed
 	if (hideInfo) {
 		return renderError("用户开启了“完全隐私保护”，获取数据失败");
 	}
 
 	const datas = [
-		{ label: "未评定", color: "#bfbfbf", data: passed[0] },
+		{ label: "未评定", color: "#e8e8e8", data: passed[0] },
 		{ label: "入门", color: "#fe4c61", data: passed[1] },
 		{ label: "普及-", color: "#f39c11", data: passed[2] },
-		{ label: "普及/提高-", color: "#ffc116", data: passed[3] },
-		{ label: "普及+/提高", color: "#52c41a", data: passed[4] },
-		{ label: "提高+/省选-", color: "#3498db", data: passed[5] },
-		{ label: "省选/NOI-", color: "#9d3dcf", data: passed[6] },
-		{ label: "NOI/NOI+/CTSC", color: "#0e1d69", data: passed[7] },
-		{ label: "尝试过的题目", color: "#0101DF", data: passed[8] }
+		{ label: "普及", color: "#ffc116", data: passed[3] },
+		{ label: "普及+/提高-", color: "#52c41a", data: passed[4] },
+		{ label: "提高", color: "#13c2c2", data: passed[5] },
+		{ label: "提高+/省选-", color: "#3498db", data: passed[6] },
+		{ label: "省选/NOI-", color: "#9d3dcf", data: passed[7] },
+		{ label: "NOI/NOI+/CTS", color: "#0e1d69", data: passed[8] },
+		{ label: "尝试过的题目", color: "#0101DF", data: passed[9] }
 	];
 
 	let nameLength = anafanafo(name) * 0.14 + 5, onameLength = nameLength;
@@ -51,7 +52,7 @@ const renderSVG = (stats, options) => {
 
 	let p1 = "", p2 = "", s1 = nameLength + 8;
 
-	for (let i = 0; i <= 8; ++i) {
+	for (let i = 0; i <= 9; ++i) {
 		const str = passed[i].toString();
 		const textW = anafanafo(str) * 0.14;
 		const boxW = Math.max(textW + 12, 20);

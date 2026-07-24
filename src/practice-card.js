@@ -21,7 +21,7 @@ async function fetchStats(id) {
         name: "NULL",
         color: "Gray",
         ccfLevel: 0,
-        passed: [0, 0, 0, 0, 0, 0, 0, 0],
+        passed: [0, 0, 0, 0, 0, 0, 0, 0, 0],
         unpassed: 0,
         hideInfo: false,
         errorType: null // "privacy" | "error"
@@ -94,14 +94,15 @@ const renderSVG = (stats, options) => {
     const progressWidth = cardWidth - 2 * paddingX - labelWidth - 60; //500 - 25*2(padding) - 90(头部文字长度) - 60(预留尾部文字长度)，暂时固定，后序提供自定义选项;
 
     const datas = [
-        { label: "未评定", color: "#bfbfbf", data: passed[0] },
+        { label: "未评定", color: "#e8e8e8", data: passed[0] },
         { label: "入门", color: "#fe4c61", data: passed[1] },
         { label: "普及-", color: "#f39c11", data: passed[2] },
-        { label: "普及/提高-", color: "#ffc116", data: passed[3] },
-        { label: "普及+/提高", color: "#52c41a", data: passed[4] },
-        { label: "提高+/省选-", color: "#3498db", data: passed[5] },
-        { label: "省选/NOI-", color: "#9d3dcf", data: passed[6] },
-        { label: "NOI/NOI+/CTSC", color: "#0e1d69", data: passed[7] },
+        { label: "普及", color: "#ffc116", data: passed[3] },
+        { label: "普及+/提高-", color: "#52c41a", data: passed[4] },
+        { label: "提高", color: "#13c2c2", data: passed[5] },
+        { label: "提高+/省选-", color: "#3498db", data: passed[6] },
+        { label: "省选/NOI-", color: "#9d3dcf", data: passed[7] },
+        { label: "NOI/NOI+/CTS", color: "#0e1d69", data: passed[8] },
         { label: "尝试过的题目", color: "#0101DF", data: unpassed }
     ]
     const passedSum = passed.reduce((a, b) => a + b);
