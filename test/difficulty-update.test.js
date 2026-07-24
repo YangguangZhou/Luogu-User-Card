@@ -32,14 +32,14 @@ function testRenderMappings() {
     };
 
     const practiceSvg = renderPracticeSVG(stats, {});
-    assert(practiceSvg.includes("暂无评定</text>"));
+    assert(practiceSvg.includes("暂未评定</text>"));
     assert(practiceSvg.includes("普及</text>"));
     assert(practiceSvg.includes("普及+/提高-</text>"));
     assert(practiceSvg.includes("提高</text>"));
     assert(practiceSvg.includes("NOI/NOI+/CTS</text>"));
     assert(practiceSvg.includes('fill="#e8e8e8"'));
     assert(practiceSvg.includes('fill="#13c2c2"'));
-    assert(!practiceSvg.includes("未评定"));
+    assert(!practiceSvg.includes(">未评定<"));
     assert(!practiceSvg.includes("普及/提高-"));
     assert(!practiceSvg.includes("CTSC"));
 
@@ -76,7 +76,7 @@ function testGeneratorPageNames() {
     assert(html.includes('const customPassed = ref([10, 20, 30, 40, 50, 60, 70, 80, 90]);'));
     assert(html.includes('NOI/NOI+/CTS'));
     assert(!html.includes("NOI/NOI+/CTSC"));
-    assert(html.includes("暂无评定"));
+    assert(html.includes("暂未评定"));
     assert(!html.includes('"未评定"'));
 }
 

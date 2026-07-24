@@ -32,7 +32,7 @@ const renderSVG = (stats, options) => {
 	}
 
 	const datas = [
-		{ label: "暂无评定", color: "#e8e8e8", data: passed[0] },
+		{ label: "暂未评定", color: "#e8e8e8", data: passed[0] },
 		{ label: "入门", color: "#fe4c61", data: passed[1] },
 		{ label: "普及-", color: "#f39c11", data: passed[2] },
 		{ label: "普及", color: "#ffc116", data: passed[3] },
